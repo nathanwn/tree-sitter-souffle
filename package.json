@@ -1,0 +1,18 @@
+{
+  "name": "tree-sitter-souffle",
+  "version": "0.0.1",
+  "description": "Treesitter Parser for Souffle",
+  "main": "bindings/node",
+  "scripts": {
+    "generate": "tree-sitter generate",
+    "test": "tree-sitter test"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "nan": "^2.17.0"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.20.7"
+  }
+}

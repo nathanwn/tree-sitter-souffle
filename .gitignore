@@ -1,0 +1,15 @@
+Cargo.lock
+package-lock.json
+node_modules
+build
+*.log
+/examples/*/
+/target/
+.envrc
+*.a
+*.dylib
+*.so
+*.o
+bindings/c/*.h
+bindings/c/tree-sitter-*.pc
+.build/
