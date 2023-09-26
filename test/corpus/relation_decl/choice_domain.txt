@@ -12,12 +12,12 @@ choice-domain 1 single attribute
     (attribute
       (attribute_name)
       (type_name
-        (user_defined_type
+        (user_defined_type_name
           (identifier))))
     (attribute
       (attribute_name)
       (type_name
-        (user_defined_type
+        (user_defined_type_name
           (identifier))))
     (choice_domain
       (choice_domain_attribute
@@ -38,12 +38,12 @@ choice-domain 2 single attributes
     (attribute
       (attribute_name)
       (type_name
-        (user_defined_type
+        (user_defined_type_name
           (identifier))))
     (attribute
       (attribute_name)
       (type_name
-        (user_defined_type
+        (user_defined_type_name
           (identifier))))
     (choice_domain
       (choice_domain_attribute
@@ -66,22 +66,22 @@ choice-domain 1 tuple attribute
     (attribute
       (attribute_name)
       (type_name
-        (user_defined_type
+        (user_defined_type_name
           (identifier))))
     (attribute
       (attribute_name)
       (type_name
-        (user_defined_type
+        (user_defined_type_name
           (identifier))))
     (attribute
       (attribute_name)
       (type_name
-        (user_defined_type
+        (user_defined_type_name
           (identifier))))
     (attribute
       (attribute_name)
       (type_name
-        (user_defined_type
+        (user_defined_type_name
           (identifier))))
     (choice_domain
       (choice_domain_attribute
@@ -104,22 +104,22 @@ choice-domain 2 tuple attributes
     (attribute
       (attribute_name)
       (type_name
-        (user_defined_type
+        (user_defined_type_name
           (identifier))))
     (attribute
       (attribute_name)
       (type_name
-        (user_defined_type
+        (user_defined_type_name
           (identifier))))
     (attribute
       (attribute_name)
       (type_name
-        (user_defined_type
+        (user_defined_type_name
           (identifier))))
     (attribute
       (attribute_name)
       (type_name
-        (user_defined_type
+        (user_defined_type_name
           (identifier))))
     (choice_domain
       (choice_domain_attribute

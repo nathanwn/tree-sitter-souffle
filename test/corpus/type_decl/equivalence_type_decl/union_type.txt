@@ -1,0 +1,19 @@
+====================================
+union type of two single types
+====================================
+
+.type Piece = Pawn | King
+
+---
+
+(source_file
+  (type_decl
+    (identifier)
+    (equivalence_type_decl
+      (union_type_expr
+        (type_name
+          (user_defined_type_name
+            (identifier)))
+        (type_name
+          (user_defined_type_name
+            (identifier)))))))

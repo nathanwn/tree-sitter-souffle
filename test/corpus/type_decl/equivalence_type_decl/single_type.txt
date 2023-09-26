@@ -27,6 +27,6 @@ user-defined type - component type
     type_ref: (identifier)
     (equivalence_type_decl
       (type_name
-          (user_defined_type
+          (user_defined_type_name
             (identifier)
             (identifier))))))

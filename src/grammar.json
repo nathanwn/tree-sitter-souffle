@@ -795,17 +795,21 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "union_type_decl"
+              "name": "union_type_expr"
             },
             {
               "type": "SYMBOL",
               "name": "type_name"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "record_type_expr"
             }
           ]
         }
       ]
     },
-    "union_type_decl": {
+    "union_type_expr": {
       "type": "PREC",
       "value": 2,
       "content": {
@@ -856,7 +860,45 @@
             "name": "qualified_name"
           },
           "named": true,
-          "value": "user_defined_type"
+          "value": "user_defined_type_name"
+        }
+      ]
+    },
+    "record_type_expr": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "["
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "attribute"
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "attribute"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "]"
         }
       ]
     },

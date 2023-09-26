@@ -142,17 +142,22 @@ module.exports = grammar({
     subtype_decl: $ => seq("<:", $.type_name),
     equivalence_type_decl: $ => seq("=",
         choice(
-            $.union_type_decl,
+            $.union_type_expr,
             $.type_name,
             // TODO
-            // $.record_list,
+            $.record_type_expr,
             // sep1($.adt_branch, "|")
         )
     ),
-    union_type_decl: $ => prec(2, sep2($.type_name, "|")),
+    union_type_expr: $ => prec(2, sep2($.type_name, "|")),
     type_name: $ => choice(
         $.primitive_type,
-        alias($.qualified_name, $.user_defined_type)
+        alias($.qualified_name, $.user_defined_type_name)
+    ),
+    record_type_expr: $ => seq(
+        "[",
+        commaSep1($.attribute),
+        "]",
     ),
     primitive_type: _ => choice(
         "number",

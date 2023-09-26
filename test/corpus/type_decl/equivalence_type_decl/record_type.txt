@@ -1,0 +1,31 @@
+====================================
+record type
+====================================
+
+.type Edge = [
+    from: Node,
+    to: Node,
+    weight: number
+]
+
+---
+
+(source_file
+  (type_decl
+    (identifier)
+    (equivalence_type_decl
+      (record_type_expr
+        (attribute
+          (attribute_name)
+          (type_name
+            (user_defined_type_name
+              (identifier))))
+        (attribute
+          (attribute_name)
+          (type_name
+            (user_defined_type_name
+              (identifier))))
+        (attribute
+          (attribute_name)
+          (type_name
+            (primitive_type)))))))
