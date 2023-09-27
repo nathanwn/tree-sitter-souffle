@@ -116,12 +116,39 @@ module.exports = grammar({
     ),
     qualified_name: $ => sep1($.identifier, "."),
     argument: $ => choice(
-        $.variable
+        $.constant,
+        $.variable,
+        alias("nil", $.nil),
+        $.argument_list,
+        $.unary_operation,
+        $.binary_operation,
+        $.type_conversion,
+    ),
+    constant: $ => choice(
+        $.string_literal,
+        $.number,
     ),
     variable: $ => choice(
         $.identifier,
         "_"
     ),
+    argument_list: $ => seq(
+        "[",
+        optional(commaSep1($.argument)),
+        "]",
+    ),
+    unary_operation: $ => prec(6, seq(
+        choice("-", "bnot", "lnot"),
+        $.argument
+    )),
+    binary_operation: $ => choice(
+        prec.left(5, seq($.argument, "^", $.argument)),
+        prec.left(4, seq($.argument, choice("*", "/", "%"), $.argument)),
+        prec.left(3, seq($.argument, choice("+", "-"), $.argument)),
+        prec.left(2, seq($.argument, choice("land", "lor", "lxor"), $.argument)),
+        prec.left(1, seq($.argument, choice("band", "bor", "bxor", "bshl", "bshr", "bshru"), $.argument))
+    ),
+    type_conversion: $ => seq("as", "(", $.argument, ",", $.type_name, ")"),
     attribute: $ => seq(
         alias($.identifier, $.attribute_name),
         ":",

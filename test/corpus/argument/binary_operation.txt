@@ -1,0 +1,111 @@
+====================================
+single binary operation
+====================================
+
+e(1 - 2).
+
+---
+
+(source_file
+  (fact
+    (atom
+      (qualified_name
+        (identifier))
+      (argument
+        (binary_operation
+          (argument
+            (constant
+              (number)))
+          (argument
+            (constant
+              (number))))))))
+
+====================================
+multiple binary operations
+====================================
+
+e(1 * 2 + 3 * 4).
+
+---
+
+(source_file
+  (fact
+    (atom
+      (qualified_name
+        (identifier))
+      (argument
+        (binary_operation
+          (argument
+            (binary_operation
+              (argument
+                (constant
+                  (number)))
+              (argument
+                (constant
+                  (number)))))
+          (argument
+            (binary_operation
+              (argument
+                (constant
+                  (number)))
+              (argument
+                (constant
+                  (number))))))))))
+
+====================================
+unary and binary operations
+====================================
+
+e(-1 - 2).
+
+---
+
+(source_file
+  (fact
+    (atom
+      (qualified_name
+        (identifier))
+      (argument
+        (binary_operation
+          (argument
+            (unary_operation
+              (argument
+                (constant
+                  (number)))))
+          (argument
+            (constant
+              (number))))))))
+
+==========================================
+unary and binary operations with variables
+==========================================
+
+e(-a * b + c / d).
+
+---
+
+(source_file
+  (fact
+    (atom
+      (qualified_name
+        (identifier))
+      (argument
+        (binary_operation
+          (argument
+            (binary_operation
+              (argument
+                (unary_operation
+                  (argument
+                    (variable
+                      (identifier)))))
+              (argument
+                (variable
+                  (identifier)))))
+          (argument
+            (binary_operation
+              (argument
+                (variable
+                  (identifier)))
+              (argument
+                (variable
+                  (identifier))))))))))
