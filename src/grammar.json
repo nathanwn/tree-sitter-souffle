@@ -34,6 +34,37 @@
         {
           "type": "SYMBOL",
           "name": "type_decl"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "preprocessor_directive"
+        }
+      ]
+    },
+    "preprocessor_directive": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "include_preprocessor_directive"
+        }
+      ]
+    },
+    "include_preprocessor_directive": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "#include"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "string_literal"
+          },
+          "named": true,
+          "value": "path_spec"
         }
       ]
     },

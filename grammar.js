@@ -16,6 +16,14 @@ module.exports = grammar({
         $.rule,
         $.fact,
         $.type_decl,
+        $.preprocessor_directive,
+    ),
+    preprocessor_directive: $ => choice(
+        $.include_preprocessor_directive
+    ),
+    include_preprocessor_directive: $ => seq(
+        "#include",
+        alias($.string_literal, $.path_spec),
     ),
     relation_decl: $ => seq(
         ".decl",
