@@ -8,6 +8,7 @@ single relation_name
 
 (source_file
   (relation_decl
+    (decl_kw)
     relation_name: (identifier)
     (attribute
       (attribute_name)
@@ -31,6 +32,7 @@ multiple relation_name
 
 (source_file
   (relation_decl
+    (decl_kw)
     relation_name: (identifier)
     relation_name: (identifier)
     (attribute

@@ -72,8 +72,8 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": ".decl"
+          "type": "SYMBOL",
+          "name": "decl_kw"
         },
         {
           "type": "FIELD",
@@ -528,8 +528,8 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": ".plan"
+          "type": "SYMBOL",
+          "name": "plan_kw"
         }
       ]
     },
@@ -538,7 +538,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "directive_qualifier"
+          "name": "_directive_qualifier"
         },
         {
           "type": "SEQ",
@@ -613,24 +613,24 @@
         }
       ]
     },
-    "directive_qualifier": {
+    "_directive_qualifier": {
       "type": "CHOICE",
       "members": [
         {
-          "type": "STRING",
-          "value": ".input"
+          "type": "SYMBOL",
+          "name": "input_kw"
         },
         {
-          "type": "STRING",
-          "value": ".output"
+          "type": "SYMBOL",
+          "name": "output_kw"
         },
         {
-          "type": "STRING",
-          "value": ".printsize"
+          "type": "SYMBOL",
+          "name": "printsize_kw"
         },
         {
-          "type": "STRING",
-          "value": ".limitsize"
+          "type": "SYMBOL",
+          "name": "limitsize_kw"
         }
       ]
     },
@@ -680,8 +680,8 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": ".include"
+          "type": "SYMBOL",
+          "name": "include_kw"
         },
         {
           "type": "SYMBOL",
@@ -1092,8 +1092,8 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": ".type"
+          "type": "SYMBOL",
+          "name": "type_kw"
         },
         {
           "type": "FIELD",
@@ -1419,7 +1419,40 @@
   ],
   "conflicts": [],
   "precedences": [],
-  "externals": [],
+  "externals": [
+    {
+      "type": "SYMBOL",
+      "name": "decl_kw"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "input_kw"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "output_kw"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "type_kw"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "include_kw"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "printsize_kw"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "limitsize_kw"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "plan_kw"
+    }
+  ],
   "inline": [],
   "supertypes": []
 }

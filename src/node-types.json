@@ -249,7 +249,19 @@
           "named": true
         },
         {
-          "type": "directive_qualifier",
+          "type": "input_kw",
+          "named": true
+        },
+        {
+          "type": "limitsize_kw",
+          "named": true
+        },
+        {
+          "type": "output_kw",
+          "named": true
+        },
+        {
+          "type": "printsize_kw",
           "named": true
         },
         {
@@ -284,11 +296,6 @@
         ]
       }
     }
-  },
-  {
-    "type": "directive_qualifier",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "directive_value",
@@ -371,9 +378,13 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "include_kw",
+          "named": true
+        },
         {
           "type": "string_literal",
           "named": true
@@ -434,7 +445,17 @@
   {
     "type": "query_plan",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "plan_kw",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "record_type_expr",
@@ -480,6 +501,10 @@
         },
         {
           "type": "choice_domain",
+          "named": true
+        },
+        {
+          "type": "decl_kw",
           "named": true
         },
         {
@@ -617,7 +642,7 @@
       }
     },
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
@@ -626,6 +651,10 @@
         },
         {
           "type": "subtype_decl",
+          "named": true
+        },
+        {
+          "type": "type_kw",
           "named": true
         }
       ]
@@ -755,38 +784,6 @@
     "named": false
   },
   {
-    "type": ".decl",
-    "named": false
-  },
-  {
-    "type": ".include",
-    "named": false
-  },
-  {
-    "type": ".input",
-    "named": false
-  },
-  {
-    "type": ".limitsize",
-    "named": false
-  },
-  {
-    "type": ".output",
-    "named": false
-  },
-  {
-    "type": ".plan",
-    "named": false
-  },
-  {
-    "type": ".printsize",
-    "named": false
-  },
-  {
-    "type": ".type",
-    "named": false
-  },
-  {
     "type": "/",
     "named": false
   },
@@ -899,6 +896,10 @@
     "named": true
   },
   {
+    "type": "decl_kw",
+    "named": true
+  },
+  {
     "type": "eqrel",
     "named": false
   },
@@ -915,12 +916,24 @@
     "named": true
   },
   {
+    "type": "include_kw",
+    "named": true
+  },
+  {
     "type": "inline",
     "named": false
   },
   {
+    "type": "input_kw",
+    "named": true
+  },
+  {
     "type": "land",
     "named": false
+  },
+  {
+    "type": "limitsize_kw",
+    "named": true
   },
   {
     "type": "line_comment",
@@ -963,11 +976,23 @@
     "named": false
   },
   {
+    "type": "output_kw",
+    "named": true
+  },
+  {
     "type": "override",
     "named": false
   },
   {
     "type": "path_spec",
+    "named": true
+  },
+  {
+    "type": "plan_kw",
+    "named": true
+  },
+  {
+    "type": "printsize_kw",
     "named": true
   },
   {
@@ -981,6 +1006,10 @@
   {
     "type": "true",
     "named": false
+  },
+  {
+    "type": "type_kw",
+    "named": true
   },
   {
     "type": "unsigned",

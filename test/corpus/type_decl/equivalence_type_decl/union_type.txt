@@ -8,6 +8,7 @@ union type of two single types
 
 (source_file
   (type_decl
+    (type_kw)
     (identifier)
     (equivalence_type_decl
       (union_type_expr

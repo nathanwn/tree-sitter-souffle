@@ -12,6 +12,7 @@ record type
 
 (source_file
   (type_decl
+    (type_kw)
     (identifier)
     (equivalence_type_decl
       (record_type_expr

@@ -8,6 +8,7 @@ primitive type "number"
 
 (source_file
   (type_decl
+    (type_kw)
     type_ref: (identifier)
     (equivalence_type_decl
       (type_name
@@ -24,6 +25,7 @@ user-defined type - component type
 
 (source_file
   (type_decl
+    (type_kw)
     type_ref: (identifier)
     (equivalence_type_decl
       (type_name

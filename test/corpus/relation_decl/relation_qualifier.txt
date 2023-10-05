@@ -8,6 +8,7 @@ single relation_qualifier
 
 (source_file
   (relation_decl
+    (decl_kw)
     relation_name: (identifier)
     (attribute
       (attribute_name)
@@ -30,6 +31,7 @@ multiple relation_qualifier
 
 (source_file
   (relation_decl
+    (decl_kw)
     relation_name: (identifier)
     (attribute
       (attribute_name)

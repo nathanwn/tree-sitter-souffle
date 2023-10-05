@@ -1,5 +1,5 @@
 ====================================
-simple
+type decl: simple subtype
 ====================================
 
 .type myEvenNumber <: number
@@ -8,6 +8,7 @@ simple
 
 (source_file
   (type_decl
+    (type_kw)
     (identifier)
     (subtype_decl
       (type_name

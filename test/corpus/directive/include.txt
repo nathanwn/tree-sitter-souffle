@@ -8,6 +8,7 @@ include 1
 
 (source_file
   (include_directive
+    (include_kw)
     (string_literal)))
 
 ====================================
@@ -21,7 +22,9 @@ include 2
 
 (source_file
   (include_directive
+    (include_kw)
     (string_literal))
   (include_directive
+    (include_kw)
     (string_literal))
 )

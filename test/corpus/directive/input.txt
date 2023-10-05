@@ -1,5 +1,5 @@
 ====================================
-no attribute
+input directive with no attribute
 ====================================
 
 .input edge
@@ -8,12 +8,12 @@ no attribute
 
 (source_file
   (directive
-    (directive_qualifier)
+    (input_kw)
     (qualified_name
       (identifier))))
 
 ====================================
-one attribute
+input directive with one attribute
 ====================================
 
 .input edge(IO=file)
@@ -22,7 +22,7 @@ one attribute
 
 (source_file
   (directive
-    (directive_qualifier)
+    (input_kw)
     (qualified_name
       (identifier))
     (directive_attribute_assignment
@@ -32,7 +32,7 @@ one attribute
 
 
 ====================================
-multiple attributes
+input directive with multiple attributes
 ====================================
 
 .input edge(IO=file, filename="path/to/infile", columns="4:7", delimiter=",")
@@ -41,7 +41,7 @@ multiple attributes
 
 (source_file
   (directive
-    (directive_qualifier)
+    (input_kw)
     (qualified_name
       (identifier))
     (directive_attribute_assignment

@@ -1,6 +1,17 @@
 module.exports = grammar({
   name: "souffle",
 
+  externals: $ => [
+    $.decl_kw,
+    $.input_kw,
+    $.output_kw,
+    $.type_kw,
+    $.include_kw,
+    $.printsize_kw,
+    $.limitsize_kw,
+    $.plan_kw,
+  ],
+
   extras: $ => [
     $.line_comment,
     $.block_comment,
@@ -26,7 +37,8 @@ module.exports = grammar({
         alias($.string_literal, $.path_spec),
     ),
     relation_decl: $ => seq(
-        ".decl",
+        // ".decl",
+        $.decl_kw,
         field("relation_name", commaSep1($.identifier)),
         "(",
         commaSep1($.attribute),
@@ -89,12 +101,12 @@ module.exports = grammar({
         choice("<", ">", "<=", ">=", "=", "!="),
         $.argument
     ),
-    query_plan: _ => seq(
-        ".plan",
+    query_plan: $ => seq(
+        $.plan_kw,
         // TODO
     ),
     directive: $ => seq(
-        $.directive_qualifier,
+        $._directive_qualifier,
         commaSep1($.qualified_name),
         optional(seq(
             "(",
@@ -102,11 +114,11 @@ module.exports = grammar({
             ")"
         ))
     ),
-    directive_qualifier: _ => choice(
-        ".input",
-        ".output",
-        ".printsize",
-        ".limitsize",
+    _directive_qualifier: $ => choice(
+        $.input_kw,
+        $.output_kw,
+        $.printsize_kw,
+        $.limitsize_kw,
     ),
     directive_attribute_assignment: $ => seq(
         field("directive_attribute", $.identifier),
@@ -119,7 +131,7 @@ module.exports = grammar({
         $.boolean_literal
     ),
     include_directive: $ => seq(
-        ".include",
+        $.include_kw,
         $.string_literal
     ),
     qualified_name: $ => sep1($.identifier, "."),
@@ -167,7 +179,7 @@ module.exports = grammar({
         "."
     ),
     type_decl: $ => seq(
-        ".type",
+        $.type_kw,
         field("type_ref", $.identifier),
         choice(
             $.subtype_decl,
