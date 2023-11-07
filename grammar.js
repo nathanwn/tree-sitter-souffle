@@ -110,7 +110,7 @@ module.exports = grammar({
         commaSep1($.qualified_name),
         optional(seq(
             "(",
-            commaSep1($.directive_attribute_assignment),
+            optional(commaSep1($.directive_attribute_assignment)),
             ")"
         ))
     ),

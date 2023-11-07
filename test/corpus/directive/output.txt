@@ -12,6 +12,20 @@ output directive no attribute
     (qualified_name
       (identifier))))
 
+=========================================
+output directive no attribute empty paren
+=========================================
+
+.output scc()
+
+---
+
+(source_file
+  (directive
+    (output_kw)
+    (qualified_name
+      (identifier))))
+
 =============================================
 output directive case that requires lookahead
 =============================================
