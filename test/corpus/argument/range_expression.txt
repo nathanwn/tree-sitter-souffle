@@ -1,0 +1,36 @@
+==================================
+range expression
+==================================
+
+A(x) :- x = range(-5, 10, 2).
+
+----------------------------------
+
+(source_file
+ (rule
+  (atom
+   (qualified_name
+    (identifier))
+   (argument
+    (variable
+     (identifier))))
+  (disjunction
+   (conjunction
+    (constraint
+     (binary_constraint
+      (argument
+       (variable
+        (identifier)))
+      (argument
+       (range_expression
+        (argument
+         (unary_operation
+          (argument
+           (constant
+            (number)))))
+        (argument
+         (constant
+          (number)))
+        (argument
+         (constant
+          (number)))))))))))

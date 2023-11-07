@@ -1,0 +1,114 @@
+==================================
+aggregator without body
+==================================
+
+count_fizz(c) :- c = count : div_by_3(x).
+
+----------------------------------
+
+(source_file
+ (rule
+  (atom
+   (qualified_name
+    (identifier))
+   (argument
+    (variable
+     (identifier))))
+  (disjunction
+   (conjunction
+    (constraint
+     (binary_constraint
+      (argument
+       (variable
+        (identifier)))
+      (argument
+       (aggregator
+        (atom
+         (qualified_name
+          (identifier))
+         (argument
+          (variable
+           (identifier))))))))))))
+
+==================================
+aggregator with body
+==================================
+
+count_fizz_buzz(c) :- c = count : { div_by_3(x), div_by_5(x) }.
+
+----------------------------------
+
+(source_file
+ (rule
+  (atom
+   (qualified_name
+    (identifier))
+   (argument
+    (variable
+     (identifier))))
+  (disjunction
+   (conjunction
+    (constraint
+     (binary_constraint
+      (argument
+       (variable
+        (identifier)))
+      (argument
+       (aggregator
+        (disjunction
+         (conjunction
+          (atom
+           (qualified_name
+            (identifier))
+           (argument
+            (variable
+             (identifier))))
+          (atom
+           (qualified_name
+            (identifier))
+           (argument
+            (variable
+             (identifier))))))))))))))
+
+==================================
+sum aggregator
+==================================
+
+sum_fizzbuzz(s) :- s = sum x : { div_by_3(x), div_by_5(x) }.
+
+----------------------------------
+
+(source_file
+ (rule
+  (atom
+   (qualified_name
+    (identifier))
+   (argument
+    (variable
+     (identifier))))
+  (disjunction
+   (conjunction
+    (constraint
+     (binary_constraint
+      (argument
+       (variable
+        (identifier)))
+      (argument
+       (aggregator
+        (argument
+         (variable
+          (identifier)))
+        (disjunction
+         (conjunction
+          (atom
+           (qualified_name
+            (identifier))
+           (argument
+            (variable
+             (identifier))))
+          (atom
+           (qualified_name
+            (identifier))
+           (argument
+            (variable
+             (identifier))))))))))))))

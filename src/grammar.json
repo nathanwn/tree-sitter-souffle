@@ -749,6 +749,14 @@
         {
           "type": "SYMBOL",
           "name": "type_conversion"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "aggregator"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "range_expression"
         }
       ]
     },
@@ -1053,6 +1061,137 @@
         }
       ]
     },
+    "aggregator": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": "max"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "mean"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "min"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "sum"
+                    }
+                  ]
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "argument"
+                }
+              ]
+            },
+            {
+              "type": "STRING",
+              "value": "count"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": ":"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "{"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "disjunction"
+                },
+                {
+                  "type": "STRING",
+                  "value": "}"
+                }
+              ]
+            },
+            {
+              "type": "SYMBOL",
+              "name": "atom"
+            }
+          ]
+        }
+      ]
+    },
+    "range_expression": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "range"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "FIELD",
+          "name": "range_from",
+          "content": {
+            "type": "SYMBOL",
+            "name": "argument"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ","
+        },
+        {
+          "type": "FIELD",
+          "name": "range_to",
+          "content": {
+            "type": "SYMBOL",
+            "name": "argument"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ","
+        },
+        {
+          "type": "FIELD",
+          "name": "range_step",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "argument"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
     "attribute": {
       "type": "SEQ",
       "members": [
@@ -1112,7 +1251,7 @@
             },
             {
               "type": "SYMBOL",
-              "name": "equivalence_type_decl"
+              "name": "eq_type_decl"
             }
           ]
         }
@@ -1131,7 +1270,7 @@
         }
       ]
     },
-    "equivalence_type_decl": {
+    "eq_type_decl": {
       "type": "SEQ",
       "members": [
         {
@@ -1143,7 +1282,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "union_type_expr"
+              "name": "union_type"
             },
             {
               "type": "SYMBOL",
@@ -1151,13 +1290,17 @@
             },
             {
               "type": "SYMBOL",
-              "name": "record_type_expr"
+              "name": "record_type"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "abstract_data_type"
             }
           ]
         }
       ]
     },
-    "union_type_expr": {
+    "union_type": {
       "type": "PREC",
       "value": 2,
       "content": {
@@ -1212,7 +1355,7 @@
         }
       ]
     },
-    "record_type_expr": {
+    "record_type": {
       "type": "SEQ",
       "members": [
         {
@@ -1247,6 +1390,81 @@
         {
           "type": "STRING",
           "value": "]"
+        }
+      ]
+    },
+    "abstract_data_type": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "adt_branch"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "|"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "adt_branch"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "adt_branch": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "attribute"
+                },
+                {
+                  "type": "REPEAT",
+                  "content": {
+                    "type": "SEQ",
+                    "members": [
+                      {
+                        "type": "STRING",
+                        "value": ","
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "attribute"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "}"
         }
       ]
     },

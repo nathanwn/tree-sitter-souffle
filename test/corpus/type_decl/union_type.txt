@@ -10,8 +10,8 @@ union type of two single types
   (type_decl
     (type_kw)
     (identifier)
-    (equivalence_type_decl
-      (union_type_expr
+    (eq_type_decl
+      (union_type
         (type_name
           (user_defined_type_name
             (identifier)))

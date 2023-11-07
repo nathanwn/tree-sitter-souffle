@@ -143,6 +143,8 @@ module.exports = grammar({
         $.unary_operation,
         $.binary_operation,
         $.type_conversion,
+        $.aggregator,
+        $.range_expression,
     ),
     constant: $ => choice(
         $.string_literal,
@@ -169,6 +171,27 @@ module.exports = grammar({
         prec.left(1, seq($.argument, choice("band", "bor", "bxor", "bshl", "bshr", "bshru"), $.argument))
     ),
     type_conversion: $ => seq("as", "(", $.argument, ",", $.type_name, ")"),
+    aggregator: $ => seq(
+        choice(
+            seq(choice("max", "mean", "min", "sum"), $.argument),
+            "count",
+        ),
+        ":",
+        choice(
+            seq("{", $.disjunction, "}"),
+            $.atom
+        ),
+    ),
+    range_expression: $ => seq(
+        "range",
+        "(",
+        field("range_from", $.argument),
+        ",",
+        field("range_to", $.argument),
+        ",",
+        field("range_step", optional($.argument)),
+        ")"
+    ),
     attribute: $ => seq(
         alias($.identifier, $.attribute_name),
         ":",
@@ -183,29 +206,30 @@ module.exports = grammar({
         field("type_ref", $.identifier),
         choice(
             $.subtype_decl,
-            $.equivalence_type_decl,
+            $.eq_type_decl,
         )
     ),
     subtype_decl: $ => seq("<:", $.type_name),
-    equivalence_type_decl: $ => seq("=",
+    eq_type_decl: $ => seq("=",
         choice(
-            $.union_type_expr,
+            $.union_type,
             $.type_name,
-            // TODO
-            $.record_type_expr,
-            // sep1($.adt_branch, "|")
+            $.record_type,
+            $.abstract_data_type,
         )
     ),
-    union_type_expr: $ => prec(2, sep2($.type_name, "|")),
+    union_type: $ => prec(2, sep2($.type_name, "|")),
     type_name: $ => choice(
         $.primitive_type,
         alias($.qualified_name, $.user_defined_type_name)
     ),
-    record_type_expr: $ => seq(
+    record_type: $ => seq(
         "[",
         commaSep1($.attribute),
         "]",
     ),
+    abstract_data_type: $ => sep1($.adt_branch, "|"),
+    adt_branch: $ => seq($.identifier, "{", optional(commaSep1($.attribute)), "}"),
     primitive_type: _ => choice(
         "number",
         "symbol",

@@ -1,5 +1,62 @@
 [
   {
+    "type": "abstract_data_type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "adt_branch",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "adt_branch",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "attribute",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "aggregator",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "argument",
+          "named": true
+        },
+        {
+          "type": "atom",
+          "named": true
+        },
+        {
+          "type": "disjunction",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "argument",
     "named": true,
     "fields": {},
@@ -7,6 +64,10 @@
       "multiple": false,
       "required": true,
       "types": [
+        {
+          "type": "aggregator",
+          "named": true
+        },
         {
           "type": "argument_list",
           "named": true
@@ -21,6 +82,10 @@
         },
         {
           "type": "nil",
+          "named": true
+        },
+        {
+          "type": "range_expression",
           "named": true
         },
         {
@@ -336,7 +401,7 @@
     }
   },
   {
-    "type": "equivalence_type_decl",
+    "type": "eq_type_decl",
     "named": true,
     "fields": {},
     "children": {
@@ -344,7 +409,11 @@
       "required": true,
       "types": [
         {
-          "type": "record_type_expr",
+          "type": "abstract_data_type",
+          "named": true
+        },
+        {
+          "type": "record_type",
           "named": true
         },
         {
@@ -352,7 +421,7 @@
           "named": true
         },
         {
-          "type": "union_type_expr",
+          "type": "union_type",
           "named": true
         }
       ]
@@ -458,7 +527,43 @@
     }
   },
   {
-    "type": "record_type_expr",
+    "type": "range_expression",
+    "named": true,
+    "fields": {
+      "range_from": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "argument",
+            "named": true
+          }
+        ]
+      },
+      "range_step": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "argument",
+            "named": true
+          }
+        ]
+      },
+      "range_to": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "argument",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "record_type",
     "named": true,
     "fields": {},
     "children": {
@@ -646,7 +751,7 @@
       "required": true,
       "types": [
         {
-          "type": "equivalence_type_decl",
+          "type": "eq_type_decl",
           "named": true
         },
         {
@@ -695,7 +800,7 @@
     }
   },
   {
-    "type": "union_type_expr",
+    "type": "union_type",
     "named": true,
     "fields": {},
     "children": {
@@ -896,6 +1001,10 @@
     "named": true
   },
   {
+    "type": "count",
+    "named": false
+  },
+  {
     "type": "decl_kw",
     "named": true
   },
@@ -956,6 +1065,18 @@
     "named": false
   },
   {
+    "type": "max",
+    "named": false
+  },
+  {
+    "type": "mean",
+    "named": false
+  },
+  {
+    "type": "min",
+    "named": false
+  },
+  {
     "type": "nil",
     "named": true
   },
@@ -996,8 +1117,16 @@
     "named": true
   },
   {
+    "type": "range",
+    "named": false
+  },
+  {
     "type": "string_literal",
     "named": true
+  },
+  {
+    "type": "sum",
+    "named": false
   },
   {
     "type": "symbol",
@@ -1016,7 +1145,15 @@
     "named": false
   },
   {
+    "type": "{",
+    "named": false
+  },
+  {
     "type": "|",
+    "named": false
+  },
+  {
+    "type": "}",
     "named": false
   }
 ]

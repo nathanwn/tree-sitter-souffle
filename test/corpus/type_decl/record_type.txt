@@ -14,8 +14,8 @@ record type
   (type_decl
     (type_kw)
     (identifier)
-    (equivalence_type_decl
-      (record_type_expr
+    (eq_type_decl
+      (record_type
         (attribute
           (attribute_name)
           (type_name
