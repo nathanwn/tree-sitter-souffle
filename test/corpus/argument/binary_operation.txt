@@ -21,6 +21,29 @@ e(1 - 2).
               (number))))))))
 
 ====================================
+single binary operation with floats
+====================================
+
+e(1.2 - 2.3).
+
+---
+
+(source_file
+  (fact
+    (atom
+      (qualified_name
+        (identifier))
+      (argument
+        (binary_operation
+          (argument
+            (constant
+              (number)))
+          (argument
+            (constant
+              (number))))))))
+
+
+====================================
 multiple binary operations
 ====================================
 
