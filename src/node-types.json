@@ -477,6 +477,21 @@
     }
   },
   {
+    "type": "pragma",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "string_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "preprocessor_directive",
     "named": true,
     "fields": {},
@@ -676,6 +691,10 @@
         },
         {
           "type": "include_directive",
+          "named": true
+        },
+        {
+          "type": "pragma",
           "named": true
         },
         {
@@ -886,6 +905,10 @@
   },
   {
     "type": ".",
+    "named": false
+  },
+  {
+    "type": ".pragma",
     "named": false
   },
   {

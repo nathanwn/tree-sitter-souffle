@@ -28,6 +28,7 @@ module.exports = grammar({
         $.fact,
         $.type_decl,
         $.preprocessor_directive,
+        $.pragma,
     ),
     preprocessor_directive: $ => choice(
         $.include_preprocessor_directive
@@ -236,6 +237,7 @@ module.exports = grammar({
         "unsigned",
         "float",
     ),
+    pragma: $ => seq(".pragma", $.string_literal, optional($.string_literal)),
     atom: $ => seq(
         $.qualified_name,
         "(",
@@ -259,9 +261,7 @@ module.exports = grammar({
       return token(seq(
         choice(
           seq(digits),
-          seq(digits, '.', optional(digits)),
-          seq(digits, '.', optional(digits), optional(exponent)),
-          seq(optional(digits), '.', digits, optional(exponent)),
+          seq(digits, '.', digits, optional(exponent)),
         ),
       ));
     },
