@@ -8,6 +8,7 @@ enum TokenType {
     INPUT_KW,
     OUTPUT_KW,
     TYPE_KW,
+    FUNCTOR_KW,
     INCLUDE_KW,
     PRINTSIZE_KW,
     LIMITSIZE_KW,
@@ -85,6 +86,10 @@ bool tree_sitter_souffle_external_scanner_scan(void *payload, TSLexer *lexer,
     }
     if (valid_symbols[TYPE_KW] && strcmp(token, ".type") == 0) {
         lexer->result_symbol = TYPE_KW;
+        matched = true;
+    }
+    if (valid_symbols[FUNCTOR_KW] && strcmp(token, ".functor") == 0) {
+        lexer->result_symbol = FUNCTOR_KW;
         matched = true;
     }
     if (valid_symbols[INCLUDE_KW] && strcmp(token, ".include") == 0) {

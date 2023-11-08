@@ -6,6 +6,7 @@ module.exports = grammar({
     $.input_kw,
     $.output_kw,
     $.type_kw,
+    $.functor_kw,
     $.include_kw,
     $.printsize_kw,
     $.limitsize_kw,
@@ -27,6 +28,7 @@ module.exports = grammar({
         $.rule,
         $.fact,
         $.type_decl,
+        $.functor_decl,
         $.preprocessor_directive,
         $.pragma,
     ),
@@ -38,7 +40,6 @@ module.exports = grammar({
         alias($.string_literal, $.path_spec),
     ),
     relation_decl: $ => seq(
-        // ".decl",
         $.decl_kw,
         field("relation_name", commaSep1($.identifier)),
         "(",
@@ -152,6 +153,7 @@ module.exports = grammar({
         $.type_conversion,
         $.aggregator,
         $.range_expression,
+        $.functor_invocation,
     ),
     constant: $ => choice(
         $.string_literal,
@@ -206,6 +208,13 @@ module.exports = grammar({
         field("range_step", optional($.argument)),
         ")"
     ),
+    functor_invocation: $ => seq(
+        "@",
+        field("name", $.qualified_name),
+        "(",
+        field("args", optional(commaSep1($.argument))),
+        ")",
+    ),
     attribute: $ => seq(
         alias($.identifier, $.attribute_name),
         ":",
@@ -250,6 +259,17 @@ module.exports = grammar({
         "unsigned",
         "float",
     ),
+    functor_decl: $ => seq(
+        $.functor_kw,
+        field("name", $.identifier),
+        "(",
+        optional(commaSep1($.attribute)),
+        ")",
+        ":",
+        $.type_name,
+        optional(field("stateful", $.stateful)),
+    ),
+    stateful: _ => token("stateful"),
     pragma: $ => seq(".pragma", $.string_literal, optional($.string_literal)),
     atom: $ => seq(
         field("name", $.qualified_name),
