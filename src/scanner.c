@@ -16,6 +16,8 @@ enum TokenType {
     COMP_KW,
     INIT_KW,
     OVERRIDE_KW,
+    MAX_AGGREGATOR_KW,
+    MIN_AGGREGATOR_KW,
 };
 
 bool is_whitespace(int32_t c) {
@@ -49,13 +51,17 @@ void tree_sitter_souffle_external_scanner_deserialize(void *payload,
                                                       unsigned length) {
 }
 
-char *next_token(TSLexer *lexer) {
+void skip_whitespaces(TSLexer *lexer) {
     for (int32_t c = lexer->lookahead; !lexer->eof(lexer) && is_whitespace(c);
          c = skip(lexer)) {
     }
+}
+
+char *next_token(TSLexer *lexer) {
+    skip_whitespaces(lexer);
     if (lexer->eof(lexer)) return NULL;
 
-    int buf_limit = 36;
+    int buf_limit = 256;
     char *buf = (char *)malloc((buf_limit + 1) * sizeof(char));
     int32_t i = 0;
 
@@ -74,7 +80,11 @@ bool tree_sitter_souffle_external_scanner_scan(void *payload, TSLexer *lexer,
     char *token = next_token(lexer);
     if (token == NULL) return false;
 
+    // Use mark_end to stop consuming new characters.
+    // See: https://github.com/tree-sitter/tree-sitter/issues/281
+    lexer->mark_end(lexer);
     bool matched = false;
+
     if (valid_symbols[DECL_KW] && strcmp(token, ".decl") == 0) {
         lexer->result_symbol = DECL_KW;
         matched = true;
@@ -123,6 +133,53 @@ bool tree_sitter_souffle_external_scanner_scan(void *payload, TSLexer *lexer,
         lexer->result_symbol = OVERRIDE_KW;
         matched = true;
     }
+    if (valid_symbols[MAX_AGGREGATOR_KW] || valid_symbols[MIN_AGGREGATOR_KW]) {
+        enum TokenType token_type = -1;
+        if (strcmp(token, "max") == 0) {
+            token_type = MAX_AGGREGATOR_KW;
+        } else if (strcmp(token, "min") == 0) {
+            token_type = MIN_AGGREGATOR_KW;
+        }
+
+        if (token_type != -1) {
+            skip_whitespaces(lexer);
+
+            if (lexer->lookahead == '(') {
+                // Handle `max ( argument ) :`.
+                // If `max ( argument )` is followed by a `:`, then this
+                // should be an aggregator.
+
+                // We first try to skip `( argument )`.
+                int32_t paren = 1;
+                advance(lexer);
+
+                for (int32_t c = lexer->lookahead;
+                     !lexer->eof(lexer) && paren > 0; c = advance(lexer)) {
+                    if (c == '(') {
+                        paren++;
+                    } else if (c == ')') {
+                        paren--;
+                    }
+                }
+
+                // Then, we try to match the colon `:`.
+                char *maybe_colon = next_token(lexer);
+
+                if (strcmp(maybe_colon, ":") == 0) {
+                    lexer->result_symbol = token_type;
+                    matched = true;
+                }
+
+                free(maybe_colon);
+            } else {
+                // Handle `max argument :`.
+                // This is simple.
+                lexer->result_symbol = token_type;
+                matched = true;
+            }
+        }
+    }
+
     free(token);
     return matched;
 }

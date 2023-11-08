@@ -101,7 +101,7 @@ C(@f(i, j)) :- A(i), B(j), @f(i, j) < 100.
 
 
 =====================================
-intrinsic functor invocations
+intrinsic functor invocation: strlen
 =====================================
 
 length(n) :- n=strlen("foobar").
@@ -130,3 +130,94 @@ length(n) :- n=strlen("foobar").
         (argument
          (constant
           (string_literal)))))))))))
+
+
+=====================================
+intrinsic functor max
+=====================================
+
+A(max(x, y)) :- B(x).
+C(x) :- x = max y : B(y).
+P(x) :- x = max (y) : Q(y).
+
+-------------------------------------
+
+(source_file
+ (rule
+  (rule_head
+   (atom
+    (qualified_name
+     (identifier))
+    (argument
+     (functor_invocation
+      (intrinsic_functor_name)
+      (argument
+       (variable
+        (identifier)))
+      (argument
+       (variable
+        (identifier)))))))
+  (disjunction
+   (conjunction
+    (atom
+     (qualified_name
+      (identifier))
+     (argument
+      (variable
+       (identifier)))))))
+    (rule
+     (rule_head
+      (atom
+       (qualified_name
+        (identifier))
+       (argument
+        (variable
+         (identifier)))))
+     (disjunction
+      (conjunction
+       (constraint
+        (binary_constraint
+         (argument
+          (variable
+           (identifier)))
+         (argument
+          (aggregator
+           (max_aggregator_kw)
+           (argument
+            (variable
+             (identifier)))
+           (atom
+            (qualified_name
+             (identifier))
+            (argument
+             (variable
+              (identifier)))))))))))
+    (rule
+     (rule_head
+      (atom
+       (qualified_name
+        (identifier))
+       (argument
+        (variable
+         (identifier)))))
+     (disjunction
+      (conjunction
+       (constraint
+        (binary_constraint
+         (argument
+          (variable
+           (identifier)))
+         (argument
+          (aggregator
+           (max_aggregator_kw)
+           (argument
+            (paren_argument
+             (argument
+              (variable
+               (identifier)))))
+           (atom
+            (qualified_name
+             (identifier))
+            (argument
+             (variable
+              (identifier))))))))))))

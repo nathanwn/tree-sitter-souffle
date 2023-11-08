@@ -802,6 +802,10 @@
         },
         {
           "type": "STRING",
+          "value": "btree_delete"
+        },
+        {
+          "type": "STRING",
           "value": "brie"
         },
         {
@@ -1475,6 +1479,10 @@
         {
           "type": "SYMBOL",
           "name": "boolean_literal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_number"
         }
       ]
     },
@@ -1538,7 +1546,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "argument_list"
+          "name": "record_init"
         },
         {
           "type": "SYMBOL",
@@ -1600,7 +1608,7 @@
         }
       ]
     },
-    "argument_list": {
+    "record_init": {
       "type": "SEQ",
       "members": [
         {
@@ -1950,16 +1958,16 @@
                   "type": "CHOICE",
                   "members": [
                     {
-                      "type": "STRING",
-                      "value": "max"
+                      "type": "SYMBOL",
+                      "name": "max_aggregator_kw"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "min_aggregator_kw"
                     },
                     {
                       "type": "STRING",
                       "value": "mean"
-                    },
-                    {
-                      "type": "STRING",
-                      "value": "min"
                     },
                     {
                       "type": "STRING",
@@ -2199,6 +2207,14 @@
         {
           "type": "STRING",
           "value": "autoinc"
+        },
+        {
+          "type": "STRING",
+          "value": "min"
+        },
+        {
+          "type": "STRING",
+          "value": "max"
         }
       ]
     },
@@ -3122,6 +3138,14 @@
     {
       "type": "SYMBOL",
       "name": "override_kw"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "max_aggregator_kw"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "min_aggregator_kw"
     }
   ],
   "inline": [],

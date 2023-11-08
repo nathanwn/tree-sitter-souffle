@@ -31,6 +31,8 @@ module.exports = grammar({
     $.comp_kw,
     $.init_kw,
     $.override_kw,
+    $.max_aggregator_kw,
+    $.min_aggregator_kw,
   ],
 
   extras: $ => [
@@ -140,6 +142,7 @@ module.exports = grammar({
     relation_qualifier: _ => choice(
         "eqrel",
         "btree",
+        "btree_delete",
         "brie",
         "no_magic",
         "magic",
@@ -245,7 +248,7 @@ module.exports = grammar({
         $.constant,
         $.variable,
         alias("nil", $.nil),
-        $.argument_list,
+        $.record_init,
         $.branch_init,
         $.unary_operation,
         $.binary_operation,
@@ -263,7 +266,7 @@ module.exports = grammar({
         $.identifier,
         "_"
     ),
-    argument_list: $ => seq(
+    record_init: $ => seq(
         "[",
         optional(commaSep1($.argument)),
         "]",
@@ -289,7 +292,13 @@ module.exports = grammar({
     type_conversion: $ => seq("as", "(", $.argument, ",", $.type_name, ")"),
     aggregator: $ => seq(
         choice(
-            seq(choice("max", "mean", "min", "sum"), $.argument),
+            seq(
+                choice(
+                    $.max_aggregator_kw,
+                    $.min_aggregator_kw,
+                    "mean", "sum"
+                ),
+            $.argument),
             "count",
         ),
         ":",
@@ -321,7 +330,8 @@ module.exports = grammar({
         "ord",
         "to_float", "to_number", "to_string", "to_unsigned",
         "cat", "strlen", "substr",
-        "autoinc"
+        "autoinc",
+        "min", "max",
     ),
     paren_argument: $ => seq('(', $.argument, ')'),
     attribute: $ => seq(

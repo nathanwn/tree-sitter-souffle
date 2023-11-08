@@ -52,6 +52,14 @@
         {
           "type": "disjunction",
           "named": true
+        },
+        {
+          "type": "max_aggregator_kw",
+          "named": true
+        },
+        {
+          "type": "min_aggregator_kw",
+          "named": true
         }
       ]
     }
@@ -66,10 +74,6 @@
       "types": [
         {
           "type": "aggregator",
-          "named": true
-        },
-        {
-          "type": "argument_list",
           "named": true
         },
         {
@@ -101,6 +105,10 @@
           "named": true
         },
         {
+          "type": "record_init",
+          "named": true
+        },
+        {
           "type": "type_conversion",
           "named": true
         },
@@ -110,21 +118,6 @@
         },
         {
           "type": "variable",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "argument_list",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "argument",
           "named": true
         }
       ]
@@ -548,7 +541,23 @@
       "required": true,
       "types": [
         {
+          "type": "binary",
+          "named": true
+        },
+        {
           "type": "boolean_literal",
+          "named": true
+        },
+        {
+          "type": "decimal",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "hex",
           "named": true
         },
         {
@@ -557,6 +566,10 @@
         },
         {
           "type": "string_literal",
+          "named": true
+        },
+        {
+          "type": "unsigned",
           "named": true
         }
       ]
@@ -1171,6 +1184,21 @@
     }
   },
   {
+    "type": "record_init",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "argument",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "record_type",
     "named": true,
     "fields": {},
@@ -1716,6 +1744,10 @@
     "named": false
   },
   {
+    "type": "btree_delete",
+    "named": false
+  },
+  {
     "type": "bxor",
     "named": false
   },
@@ -1765,11 +1797,11 @@
   },
   {
     "type": "float",
-    "named": true
+    "named": false
   },
   {
     "type": "float",
-    "named": false
+    "named": true
   },
   {
     "type": "functor_kw",
@@ -1832,12 +1864,20 @@
     "named": false
   },
   {
+    "type": "max_aggregator_kw",
+    "named": true
+  },
+  {
     "type": "mean",
     "named": false
   },
   {
     "type": "min",
     "named": false
+  },
+  {
+    "type": "min_aggregator_kw",
+    "named": true
   },
   {
     "type": "nil",
