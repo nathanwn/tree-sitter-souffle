@@ -1,5 +1,5 @@
 =====================================
-function invocation 1
+user-defined functor invocation 1
 =====================================
 
 A(@f(i)) :- A(i), @f(i) < 100.
@@ -14,8 +14,9 @@ A(@f(i)) :- A(i), @f(i) < 100.
      (identifier))
     (argument
      (functor_invocation
-      (qualified_name
-       (identifier))
+      (user_defined_functor_name
+       (qualified_name
+        (identifier)))
       (argument
        (variable
         (identifier)))))))
@@ -31,8 +32,9 @@ A(@f(i)) :- A(i), @f(i) < 100.
      (binary_constraint
       (argument
        (functor_invocation
-        (qualified_name
-         (identifier))
+        (user_defined_functor_name
+         (qualified_name
+          (identifier)))
         (argument
          (variable
           (identifier)))))
@@ -42,7 +44,7 @@ A(@f(i)) :- A(i), @f(i) < 100.
 
 
 =====================================
-function invocation 2
+user-defined functor invocation 2
 =====================================
 
 C(@f(i, j)) :- A(i), B(j), @f(i, j) < 100.
@@ -57,8 +59,9 @@ C(@f(i, j)) :- A(i), B(j), @f(i, j) < 100.
      (identifier))
     (argument
      (functor_invocation
+      (user_defined_functor_name
       (qualified_name
-       (identifier))
+       (identifier)))
       (argument
        (variable
         (identifier)))
@@ -83,8 +86,9 @@ C(@f(i, j)) :- A(i), B(j), @f(i, j) < 100.
      (binary_constraint
       (argument
        (functor_invocation
-        (qualified_name
-         (identifier))
+        (user_defined_functor_name
+         (qualified_name
+          (identifier)))
         (argument
          (variable
           (identifier)))
@@ -94,3 +98,35 @@ C(@f(i, j)) :- A(i), B(j), @f(i, j) < 100.
       (argument
        (constant
         (decimal)))))))))
+
+
+=====================================
+intrinsic functor invocations
+=====================================
+
+length(n) :- n=strlen("foobar").
+
+-------------------------------------
+
+(source_file
+ (rule
+  (rule_head
+   (atom
+    (qualified_name
+     (identifier))
+    (argument
+     (variable
+      (identifier)))))
+  (disjunction
+   (conjunction
+    (constraint
+     (binary_constraint
+      (argument
+       (variable
+        (identifier)))
+      (argument
+       (functor_invocation
+        (intrinsic_functor_name)
+        (argument
+         (constant
+          (string_literal)))))))))))

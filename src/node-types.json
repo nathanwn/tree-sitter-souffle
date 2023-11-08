@@ -570,7 +570,11 @@
         "required": true,
         "types": [
           {
-            "type": "qualified_name",
+            "type": "intrinsic_functor_name",
+            "named": true
+          },
+          {
+            "type": "user_defined_functor_name",
             "named": true
           }
         ]
@@ -610,6 +614,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "intrinsic_functor_name",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "pragma",
@@ -1009,6 +1018,21 @@
     }
   },
   {
+    "type": "user_defined_functor_name",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "qualified_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "user_defined_type_name",
     "named": true,
     "fields": {},
@@ -1159,6 +1183,10 @@
     "named": true
   },
   {
+    "type": "autoinc",
+    "named": false
+  },
+  {
     "type": "band",
     "named": false
   },
@@ -1203,6 +1231,10 @@
     "named": false
   },
   {
+    "type": "cat",
+    "named": false
+  },
+  {
     "type": "choice-domain",
     "named": false
   },
@@ -1232,11 +1264,11 @@
   },
   {
     "type": "float",
-    "named": false
+    "named": true
   },
   {
     "type": "float",
-    "named": true
+    "named": false
   },
   {
     "type": "functor_kw",
@@ -1319,6 +1351,10 @@
     "named": false
   },
   {
+    "type": "ord",
+    "named": false
+  },
+  {
     "type": "output_kw",
     "named": true
   },
@@ -1351,11 +1387,35 @@
     "named": true
   },
   {
+    "type": "strlen",
+    "named": false
+  },
+  {
+    "type": "substr",
+    "named": false
+  },
+  {
     "type": "sum",
     "named": false
   },
   {
     "type": "symbol",
+    "named": false
+  },
+  {
+    "type": "to_float",
+    "named": false
+  },
+  {
+    "type": "to_number",
+    "named": false
+  },
+  {
+    "type": "to_string",
+    "named": false
+  },
+  {
+    "type": "to_unsigned",
     "named": false
   },
   {

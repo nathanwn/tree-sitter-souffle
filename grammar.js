@@ -209,11 +209,17 @@ module.exports = grammar({
         ")"
     ),
     functor_invocation: $ => seq(
-        "@",
-        field("name", $.qualified_name),
+        field("name", choice($.user_defined_functor_name, $.intrinsic_functor_name)),
         "(",
         field("args", optional(commaSep1($.argument))),
         ")",
+    ),
+    user_defined_functor_name: $ => seq("@", $.qualified_name),
+    intrinsic_functor_name: $ => choice(
+        "ord",
+        "to_float", "to_number", "to_string", "to_unsigned",
+        "cat", "strlen", "substr",
+        "autoinc"
     ),
     attribute: $ => seq(
         alias($.identifier, $.attribute_name),

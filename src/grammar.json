@@ -1316,15 +1316,20 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "@"
-        },
-        {
           "type": "FIELD",
           "name": "name",
           "content": {
-            "type": "SYMBOL",
-            "name": "qualified_name"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "user_defined_functor_name"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "intrinsic_functor_name"
+              }
+            ]
           }
         },
         {
@@ -1371,6 +1376,60 @@
         {
           "type": "STRING",
           "value": ")"
+        }
+      ]
+    },
+    "user_defined_functor_name": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "@"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "qualified_name"
+        }
+      ]
+    },
+    "intrinsic_functor_name": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "ord"
+        },
+        {
+          "type": "STRING",
+          "value": "to_float"
+        },
+        {
+          "type": "STRING",
+          "value": "to_number"
+        },
+        {
+          "type": "STRING",
+          "value": "to_string"
+        },
+        {
+          "type": "STRING",
+          "value": "to_unsigned"
+        },
+        {
+          "type": "STRING",
+          "value": "cat"
+        },
+        {
+          "type": "STRING",
+          "value": "strlen"
+        },
+        {
+          "type": "STRING",
+          "value": "substr"
+        },
+        {
+          "type": "STRING",
+          "value": "autoinc"
         }
       ]
     },
