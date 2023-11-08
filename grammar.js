@@ -146,6 +146,7 @@ module.exports = grammar({
         $.variable,
         alias("nil", $.nil),
         $.argument_list,
+        $.branch_init,
         $.unary_operation,
         $.binary_operation,
         $.type_conversion,
@@ -164,6 +165,13 @@ module.exports = grammar({
         "[",
         optional(commaSep1($.argument)),
         "]",
+    ),
+    branch_init: $ => seq(
+        "$",
+        field("name", $.qualified_name),
+        "(",
+        field("args", optional(commaSep1($.argument))),
+        ")",
     ),
     unary_operation: $ => prec(6, seq(
         choice("-", "bnot", "lnot"),
@@ -244,9 +252,9 @@ module.exports = grammar({
     ),
     pragma: $ => seq(".pragma", $.string_literal, optional($.string_literal)),
     atom: $ => seq(
-        $.qualified_name,
+        field("name", $.qualified_name),
         "(",
-        commaSep1($.argument),
+        field("args", commaSep1($.argument)),
         ")",
     ),
     boolean_literal: _ => choice("true", "false"),
