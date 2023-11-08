@@ -643,31 +643,52 @@
     "type": "rule",
     "named": true,
     "fields": {
-      "rule_name": {
-        "multiple": true,
+      "body": {
+        "multiple": false,
         "required": true,
         "types": [
           {
-            "type": ",",
-            "named": false
+            "type": "disjunction",
+            "named": true
+          }
+        ]
+      },
+      "head": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "rule_head",
+            "named": true
           },
           {
-            "type": "atom",
+            "type": "subsumption_head",
             "named": true
           }
         ]
       }
     },
     "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "query_plan",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "rule_head",
+    "named": true,
+    "fields": {},
+    "children": {
       "multiple": true,
       "required": true,
       "types": [
         {
-          "type": "disjunction",
-          "named": true
-        },
-        {
-          "type": "query_plan",
+          "type": "atom",
           "named": true
         }
       ]
@@ -711,6 +732,21 @@
         },
         {
           "type": "type_decl",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "subsumption_head",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "atom",
           "named": true
         }
       ]
@@ -1113,11 +1149,11 @@
   },
   {
     "type": "number",
-    "named": true
+    "named": false
   },
   {
     "type": "number",
-    "named": false
+    "named": true
   },
   {
     "type": "output_kw",

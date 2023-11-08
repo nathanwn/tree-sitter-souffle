@@ -8,12 +8,13 @@ count_fizz(c) :- c = count : div_by_3(x).
 
 (source_file
  (rule
-  (atom
-   (qualified_name
-    (identifier))
-   (argument
-    (variable
-     (identifier))))
+  (rule_head
+   (atom
+    (qualified_name
+     (identifier))
+    (argument
+     (variable
+      (identifier)))))
   (disjunction
    (conjunction
     (constraint
@@ -40,12 +41,13 @@ count_fizz_buzz(c) :- c = count : { div_by_3(x), div_by_5(x) }.
 
 (source_file
  (rule
-  (atom
-   (qualified_name
-    (identifier))
-   (argument
-    (variable
-     (identifier))))
+  (rule_head
+   (atom
+    (qualified_name
+     (identifier))
+    (argument
+     (variable
+      (identifier)))))
   (disjunction
    (conjunction
     (constraint
@@ -80,12 +82,13 @@ sum_fizzbuzz(s) :- s = sum x : { div_by_3(x), div_by_5(x) }.
 
 (source_file
  (rule
-  (atom
-   (qualified_name
-    (identifier))
-   (argument
-    (variable
-     (identifier))))
+  (rule_head
+   (atom
+    (qualified_name
+     (identifier))
+    (argument
+     (variable
+      (identifier)))))
   (disjunction
    (conjunction
     (constraint

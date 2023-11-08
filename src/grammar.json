@@ -294,29 +294,17 @@
       "members": [
         {
           "type": "FIELD",
-          "name": "rule_name",
+          "name": "head",
           "content": {
-            "type": "SEQ",
+            "type": "CHOICE",
             "members": [
               {
                 "type": "SYMBOL",
-                "name": "atom"
+                "name": "rule_head"
               },
               {
-                "type": "REPEAT",
-                "content": {
-                  "type": "SEQ",
-                  "members": [
-                    {
-                      "type": "STRING",
-                      "value": ","
-                    },
-                    {
-                      "type": "SYMBOL",
-                      "name": "atom"
-                    }
-                  ]
-                }
+                "type": "SYMBOL",
+                "name": "subsumption_head"
               }
             ]
           }
@@ -326,8 +314,12 @@
           "value": ":-"
         },
         {
-          "type": "SYMBOL",
-          "name": "disjunction"
+          "type": "FIELD",
+          "name": "body",
+          "content": {
+            "type": "SYMBOL",
+            "name": "disjunction"
+          }
         },
         {
           "type": "STRING",
@@ -344,6 +336,48 @@
               "type": "BLANK"
             }
           ]
+        }
+      ]
+    },
+    "rule_head": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "atom"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": ","
+              },
+              {
+                "type": "SYMBOL",
+                "name": "atom"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "subsumption_head": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "atom"
+        },
+        {
+          "type": "STRING",
+          "value": "<="
+        },
+        {
+          "type": "SYMBOL",
+          "name": "atom"
         }
       ]
     },

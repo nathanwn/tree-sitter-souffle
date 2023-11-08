@@ -8,12 +8,13 @@ A(x) :- x = range(-5, 10, 2).
 
 (source_file
  (rule
-  (atom
-   (qualified_name
-    (identifier))
-   (argument
-    (variable
-     (identifier))))
+  (rule_head
+   (atom
+    (qualified_name
+     (identifier))
+    (argument
+     (variable
+      (identifier)))))
   (disjunction
    (conjunction
     (constraint
@@ -45,12 +46,13 @@ A(x) :- x = range(-5, 10, 0.5).
 
 (source_file
  (rule
-  (atom
-   (qualified_name
-    (identifier))
-   (argument
-    (variable
-     (identifier))))
+  (rule_head
+   (atom
+    (qualified_name
+     (identifier))
+    (argument
+     (variable
+      (identifier)))))
   (disjunction
    (conjunction
     (constraint

@@ -71,12 +71,17 @@ module.exports = grammar({
         ")"
     ),
     rule: $ => seq(
-        field('rule_name', commaSep1($.atom)),
+        field("head", choice(
+            $.rule_head,
+            $.subsumption_head,
+        )),
         ":-",
-        $.disjunction,
+        field("body", $.disjunction),
         '.',
         optional($.query_plan)
     ),
+    rule_head: $ => commaSep1($.atom),
+    subsumption_head: $ => seq($.atom, "<=", $.atom),
     disjunction: $ => sep1($.conjunction, ";"),
     conjunction: $ => commaSep1(
         seq(
