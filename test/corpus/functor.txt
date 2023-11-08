@@ -26,10 +26,11 @@ functor with one argument
  (functor_decl
   (functor_kw)
   (identifier)
-  (attribute
-   (attribute_name)
-   (type_name
-    (primitive_type)))
+  (functor_attribute
+   (attribute
+    (attribute_name)
+    (type_name
+     (primitive_type))))
   (type_name
    (primitive_type))))
 
@@ -46,12 +47,36 @@ functor with two arguments
  (functor_decl
   (functor_kw)
   (identifier)
-  (attribute
-   (attribute_name)
+  (functor_attribute
+   (attribute
+    (attribute_name)
+    (type_name
+     (primitive_type))))
+  (functor_attribute
+   (attribute
+    (attribute_name)
+    (type_name
+     (primitive_type))))
+  (type_name
+   (primitive_type))))
+
+
+=================================
+functor with anonymous arguments
+=================================
+
+.functor f(number, number):number
+
+---------------------------------
+
+(source_file
+ (functor_decl
+  (functor_kw)
+  (identifier)
+  (functor_attribute
    (type_name
     (primitive_type)))
-  (attribute
-   (attribute_name)
+  (functor_attribute
    (type_name
     (primitive_type)))
   (type_name

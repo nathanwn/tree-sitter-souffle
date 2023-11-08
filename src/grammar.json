@@ -1757,7 +1757,7 @@
               "members": [
                 {
                   "type": "SYMBOL",
-                  "name": "attribute"
+                  "name": "functor_attribute"
                 },
                 {
                   "type": "REPEAT",
@@ -1770,7 +1770,7 @@
                       },
                       {
                         "type": "SYMBOL",
-                        "name": "attribute"
+                        "name": "functor_attribute"
                       }
                     ]
                   }
@@ -1809,6 +1809,19 @@
               "type": "BLANK"
             }
           ]
+        }
+      ]
+    },
+    "functor_attribute": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "attribute"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "type_name"
         }
       ]
     },
