@@ -194,7 +194,15 @@ module.exports = grammar({
     ),
     query_plan: $ => seq(
         $.plan_kw,
-        // TODO
+        commaSep1(
+            seq(
+                $._number,
+                ":",
+                "(",
+                optional(commaSep1($._number)),
+                ")",
+            )
+        ),
     ),
     directive: $ => seq(
         $._directive_qualifier,

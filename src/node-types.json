@@ -996,11 +996,31 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
+          "type": "binary",
+          "named": true
+        },
+        {
+          "type": "decimal",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "hex",
+          "named": true
+        },
+        {
           "type": "plan_kw",
+          "named": true
+        },
+        {
+          "type": "unsigned",
           "named": true
         }
       ]
@@ -1801,11 +1821,11 @@
   },
   {
     "type": "unsigned",
-    "named": false
+    "named": true
   },
   {
     "type": "unsigned",
-    "named": true
+    "named": false
   },
   {
     "type": "{",
