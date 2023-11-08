@@ -1,12 +1,12 @@
 ====================================
-include preprocessor directive
+preprocessor include
 ====================================
 
 #include "numbers"
 
----
+------------------------------------
 
 (source_file
-  (preprocessor_directive
-    (include_preprocessor_directive
+  (preproc_directive
+    (preproc_include
       (path_spec))))

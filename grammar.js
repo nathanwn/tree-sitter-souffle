@@ -1,3 +1,20 @@
+const PREC = {
+  or: 10,
+  and: 11,
+  not: 12,
+  compare: 13,
+  bitwise_or: 14,
+  bitwise_and: 15,
+  xor: 16,
+  shift: 17,
+  add: 18,
+  mul: 19,
+  unary: 20,
+  power: 21,
+  paren_exp: 22,
+  fun_call: 23,
+};
+
 module.exports = grammar({
   name: "souffle",
 
@@ -29,15 +46,82 @@ module.exports = grammar({
         $.fact,
         $.type_decl,
         $.functor_decl,
-        $.preprocessor_directive,
+        $.preproc_directive,
         $.pragma,
     ),
-    preprocessor_directive: $ => choice(
-        $.include_preprocessor_directive
+    preproc_directive: $ => choice(
+        $.preproc_include,
+        $.preproc_if,
+        $.preproc_else,
+        $.preproc_ifdef,
+        $.preproc_ifndef,
+        $.preproc_endif,
+        $.preproc_define,
     ),
-    include_preprocessor_directive: $ => seq(
+    preproc_include: $ => seq(
         "#include",
         alias($.string_literal, $.path_spec),
+    ),
+    preproc_if: $ => seq(
+        "#if",
+        $._preproc_exp,
+    ),
+    preproc_else: _ => "#else",
+    preproc_ifdef: $ => seq(
+        "#ifdef",
+        $.identifier
+    ),
+    preproc_ifndef: $ => seq(
+        "#ifndef",
+        $.identifier
+    ),
+    preproc_endif: _ => "#endif",
+    preproc_define: $ => seq("#define", $.preproc_macro),
+    preproc_macro: _ => /\S([^\n]|\\\r?\n)*/,
+    _preproc_exp: $ => choice(
+        $.identifier,
+        $._integer,
+        $.preproc_binary_exp,
+        $.preproc_defined_exp,
+    ),
+    preproc_defined_exp: $ => prec(PREC.fun_call, seq(
+        "defined",
+        choice(
+            $._preproc_exp,
+            seq("(", $._preproc_exp, ")"),
+        )
+    )),
+    preproc_binary_exp: $ => {
+        const table = [
+            [prec.left, '+', PREC.add],
+            [prec.left, '-', PREC.add],
+            [prec.left, '*', PREC.mul],
+            [prec.left, '/', PREC.mul],
+            [prec.left, '<', PREC.compare],
+            [prec.left, '<=', PREC.compare],
+            [prec.left, '>', PREC.compare],
+            [prec.left, '>=', PREC.compare],
+            [prec.left, '==', PREC.compare],
+            [prec.left, '&&', PREC.and],
+            [prec.left, '||', PREC.or],
+            [prec.left, '<<', PREC.shift],
+            [prec.left, '>>', PREC.shift],
+        ];
+
+        return choice(...table.map(([fn, operator, precedence]) => fn(
+            precedence, seq(
+                field('lhs', $._preproc_exp),
+                field('op', operator),
+                field('rhs', $._preproc_exp),
+            )
+        )));
+    },
+    ifdefine_preproc_directive: $ => seq(
+        "#if",
+        "define",
+        "(",
+        $.identifier,
+        ")",
     ),
     relation_decl: $ => seq(
         $.decl_kw,
@@ -154,6 +238,7 @@ module.exports = grammar({
         $.aggregator,
         $.range_expression,
         $.functor_invocation,
+        $.paren_argument,
     ),
     constant: $ => choice(
         $.string_literal,
@@ -221,6 +306,7 @@ module.exports = grammar({
         "cat", "strlen", "substr",
         "autoinc"
     ),
+    paren_argument: $ => seq('(', $.argument, ')'),
     attribute: $ => seq(
         alias($.identifier, $.attribute_name),
         ":",
@@ -307,11 +393,14 @@ module.exports = grammar({
       const exponent = seq(/[eE][\+-]?/, decimal);
       return token(seq(decimal, '.', decimal, optional(exponent)));
     },
-    _number: $ => choice(
+    _integer: $ => choice(
         $.hex,
         $.binary,
         $.decimal,
         $.unsigned,
+    ),
+    _number: $ => choice(
+        $._integer,
         $.float,
     ),
   },
