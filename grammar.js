@@ -127,7 +127,7 @@ module.exports = grammar({
         $.decl_kw,
         field("relation_name", commaSep1($.identifier)),
         "(",
-        commaSep1($.attribute),
+        optional(commaSep1($.attribute)),
         ")",
         repeat($.relation_qualifier),
         optional($.choice_domain)
@@ -378,7 +378,7 @@ module.exports = grammar({
     atom: $ => seq(
         field("name", $.qualified_name),
         "(",
-        field("args", commaSep1($.argument)),
+        field("args", optional(commaSep1($.argument))),
         ")",
     ),
     boolean_literal: _ => choice("true", "false"),

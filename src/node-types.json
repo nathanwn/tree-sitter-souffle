@@ -136,7 +136,7 @@
     "fields": {
       "args": {
         "multiple": true,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": ",",
