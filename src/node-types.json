@@ -294,6 +294,114 @@
     }
   },
   {
+    "type": "component_decl",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "comp_kw",
+          "named": true
+        },
+        {
+          "type": "component_decl",
+          "named": true
+        },
+        {
+          "type": "component_init",
+          "named": true
+        },
+        {
+          "type": "component_override",
+          "named": true
+        },
+        {
+          "type": "component_type",
+          "named": true
+        },
+        {
+          "type": "directive",
+          "named": true
+        },
+        {
+          "type": "fact",
+          "named": true
+        },
+        {
+          "type": "relation_decl",
+          "named": true
+        },
+        {
+          "type": "rule",
+          "named": true
+        },
+        {
+          "type": "type_decl",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "component_init",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "component_type",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "init_kw",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "component_override",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "override_kw",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "component_type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "conjunction",
     "named": true,
     "fields": {},
@@ -1188,6 +1296,14 @@
       "required": false,
       "types": [
         {
+          "type": "component_decl",
+          "named": true
+        },
+        {
+          "type": "component_init",
+          "named": true
+        },
+        {
           "type": "directive",
           "named": true
         },
@@ -1616,6 +1732,10 @@
     "named": true
   },
   {
+    "type": "comp_kw",
+    "named": true
+  },
+  {
     "type": "count",
     "named": false
   },
@@ -1665,6 +1785,10 @@
   },
   {
     "type": "include_kw",
+    "named": true
+  },
+  {
+    "type": "init_kw",
     "named": true
   },
   {
@@ -1740,8 +1864,16 @@
     "named": true
   },
   {
+    "type": "overridable",
+    "named": false
+  },
+  {
     "type": "override",
     "named": false
+  },
+  {
+    "type": "override_kw",
+    "named": true
   },
   {
     "type": "path_spec",
@@ -1821,11 +1953,11 @@
   },
   {
     "type": "unsigned",
-    "named": true
+    "named": false
   },
   {
     "type": "unsigned",
-    "named": false
+    "named": true
   },
   {
     "type": "{",

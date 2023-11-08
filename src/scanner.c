@@ -12,7 +12,10 @@ enum TokenType {
     INCLUDE_KW,
     PRINTSIZE_KW,
     LIMITSIZE_KW,
-    PLAN_KW
+    PLAN_KW,
+    COMP_KW,
+    INIT_KW,
+    OVERRIDE_KW,
 };
 
 bool is_whitespace(int32_t c) {
@@ -106,6 +109,18 @@ bool tree_sitter_souffle_external_scanner_scan(void *payload, TSLexer *lexer,
     }
     if (valid_symbols[PLAN_KW] && strcmp(token, ".plan") == 0) {
         lexer->result_symbol = PLAN_KW;
+        matched = true;
+    }
+    if (valid_symbols[COMP_KW] && strcmp(token, ".comp") == 0) {
+        lexer->result_symbol = COMP_KW;
+        matched = true;
+    }
+    if (valid_symbols[INIT_KW] && strcmp(token, ".init") == 0) {
+        lexer->result_symbol = INIT_KW;
+        matched = true;
+    }
+    if (valid_symbols[OVERRIDE_KW] && strcmp(token, ".override") == 0) {
+        lexer->result_symbol = OVERRIDE_KW;
         matched = true;
     }
     free(token);

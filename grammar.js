@@ -28,6 +28,9 @@ module.exports = grammar({
     $.printsize_kw,
     $.limitsize_kw,
     $.plan_kw,
+    $.comp_kw,
+    $.init_kw,
+    $.override_kw,
   ],
 
   extras: $ => [
@@ -46,6 +49,8 @@ module.exports = grammar({
         $.fact,
         $.type_decl,
         $.functor_decl,
+        $.component_decl,
+        $.component_init,
         $.preproc_directive,
         $.pragma,
     ),
@@ -140,7 +145,8 @@ module.exports = grammar({
         "magic",
         "no_inline",
         "inline",
-        "override"
+        "override",
+        "overridable"
     ),
     choice_domain: $ => seq(
         "choice-domain",
@@ -374,6 +380,40 @@ module.exports = grammar({
         $.type_name,
     ),
     stateful: _ => token("stateful"),
+    component_decl: $ => seq(
+        $.comp_kw,
+        sep1($.component_type, choice(":", ",")),
+        "{",
+            repeat(choice(
+                $.type_decl,
+                $.relation_decl,
+                $.rule,
+                $.fact,
+                $.directive,
+                $.component_override,
+                $.component_init,
+                $.component_decl
+            )),
+        "}",
+    ),
+    component_type: $ => seq(
+        $.identifier,
+        optional(seq(
+            "<",
+            commaSep1($.identifier),
+            ">",
+        ))
+    ),
+    component_override: $ => seq(
+        $.override_kw,
+        $.identifier
+    ),
+    component_init: $ => seq(
+        $.init_kw,
+        $.identifier,
+        "=",
+        $.component_type
+    ),
     pragma: $ => seq(".pragma", $.string_literal, optional($.string_literal)),
     atom: $ => seq(
         field("name", $.qualified_name),
