@@ -233,7 +233,8 @@ module.exports = grammar({
     directive_value: $ => choice(
         $.string_literal,
         $.identifier,
-        $.boolean_literal
+        $.boolean_literal,
+        $._number,
     ),
     include_directive: $ => seq(
         $.include_kw,
