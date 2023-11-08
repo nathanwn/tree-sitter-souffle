@@ -15,7 +15,7 @@ f(-2, 5).
         (unary_operation
           (argument
             (constant
-              (number)))))
+              (decimal)))))
       (argument
         (constant
-          (number))))))
+          (decimal))))))

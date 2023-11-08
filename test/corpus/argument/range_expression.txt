@@ -28,13 +28,13 @@ A(x) :- x = range(-5, 10, 2).
          (unary_operation
           (argument
            (constant
-            (number)))))
+            (decimal)))))
         (argument
          (constant
-          (number)))
+          (decimal)))
         (argument
          (constant
-          (number)))))))))))
+          (decimal)))))))))))
 
 ==================================
 range expression with float
@@ -66,11 +66,11 @@ A(x) :- x = range(-5, 10, 0.5).
          (unary_operation
           (argument
            (constant
-            (number)))))
+            (decimal)))))
         (argument
          (constant
-          (number)))
+          (decimal)))
         (argument
          (constant
-          (number)))))))))))
+          (float)))))))))))
 

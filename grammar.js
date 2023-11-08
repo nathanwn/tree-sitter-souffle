@@ -155,7 +155,7 @@ module.exports = grammar({
     ),
     constant: $ => choice(
         $.string_literal,
-        $.number,
+        $._number,
     ),
     variable: $ => choice(
         $.identifier,
@@ -268,16 +268,20 @@ module.exports = grammar({
       '/'
     )),
     identifier: _ => /[a-zA-Z_][a-zA-Z0-9_]*/,
-    number: _ => {
-      const digits = repeat1(/[0-9]+_?/);
-      const exponent = seq(/[eE][\+-]?/, digits);
-      return token(seq(
-        choice(
-          seq(digits),
-          seq(digits, '.', digits, optional(exponent)),
-        ),
-      ));
+    hex: _ => /0x([0-9]|[A-F]|[a-f])+/,
+    binary: _ => /0b[0-1]+/,
+    decimal: _ => /[0-9]+/,
+    float: _ => {
+      const decimal = /[0-9]+/;
+      const exponent = seq(/[eE][\+-]?/, decimal);
+      return token(seq(decimal, '.', decimal, optional(exponent)));
     },
+    _number: $ => choice(
+        $.hex,
+        $.binary,
+        $.decimal,
+        $.float,
+    ),
   },
 });
 

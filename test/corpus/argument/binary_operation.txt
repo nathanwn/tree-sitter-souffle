@@ -15,10 +15,10 @@ e(1 - 2).
         (binary_operation
           (argument
             (constant
-              (number)))
+              (decimal)))
           (argument
             (constant
-              (number))))))))
+              (decimal))))))))
 
 ====================================
 single binary operation with floats
@@ -37,10 +37,10 @@ e(1.2 - 2.3).
         (binary_operation
           (argument
             (constant
-              (number)))
+              (float)))
           (argument
             (constant
-              (number))))))))
+              (float))))))))
 
 
 ====================================
@@ -62,18 +62,18 @@ e(1 * 2 + 3 * 4).
             (binary_operation
               (argument
                 (constant
-                  (number)))
+                  (decimal)))
               (argument
                 (constant
-                  (number)))))
+                  (decimal)))))
           (argument
             (binary_operation
               (argument
                 (constant
-                  (number)))
+                  (decimal)))
               (argument
                 (constant
-                  (number))))))))))
+                  (decimal))))))))))
 
 ====================================
 unary and binary operations
@@ -94,10 +94,10 @@ e(-1 - 2).
             (unary_operation
               (argument
                 (constant
-                  (number)))))
+                  (decimal)))))
           (argument
             (constant
-              (number))))))))
+              (decimal))))))))
 
 ==========================================
 unary and binary operations with variables

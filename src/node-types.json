@@ -317,7 +317,19 @@
       "required": true,
       "types": [
         {
-          "type": "number",
+          "type": "binary",
+          "named": true
+        },
+        {
+          "type": "decimal",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "hex",
           "named": true
         },
         {
@@ -1065,6 +1077,10 @@
     "named": false
   },
   {
+    "type": "binary",
+    "named": true
+  },
+  {
     "type": "block_comment",
     "named": true
   },
@@ -1113,6 +1129,10 @@
     "named": false
   },
   {
+    "type": "decimal",
+    "named": true
+  },
+  {
     "type": "decl_kw",
     "named": true
   },
@@ -1126,7 +1146,15 @@
   },
   {
     "type": "float",
+    "named": true
+  },
+  {
+    "type": "float",
     "named": false
+  },
+  {
+    "type": "hex",
+    "named": true
   },
   {
     "type": "identifier",
@@ -1195,10 +1223,6 @@
   {
     "type": "no_magic",
     "named": false
-  },
-  {
-    "type": "number",
-    "named": true
   },
   {
     "type": "number",

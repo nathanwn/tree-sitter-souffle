@@ -13,6 +13,6 @@ f(0, nil).
         (identifier))
       (argument
         (constant
-          (number)))
+          (decimal)))
       (argument
         (nil)))))

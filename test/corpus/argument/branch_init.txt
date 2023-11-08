@@ -22,7 +22,7 @@ A($Add($Number(10), $Variable("x"))).
         (identifier))
        (argument
         (constant
-         (number)))))
+         (decimal)))))
      (argument
       (branch_init
        (qualified_name
@@ -41,7 +41,7 @@ A($Add($Number(10), $Variable("x"))).
         (identifier))
        (argument
         (constant
-         (number)))))
+         (decimal)))))
      (argument
       (branch_init
        (qualified_name
