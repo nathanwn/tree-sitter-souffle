@@ -1,4 +1,38 @@
 ==================================
+range expression no step
+==================================
+
+A(x) :- x = range(1, 10).
+
+----------------------------------
+
+(source_file
+ (rule
+  (rule_head
+   (atom
+    (qualified_name
+     (identifier))
+    (argument
+     (variable
+      (identifier)))))
+  (disjunction
+   (conjunction
+    (constraint
+     (binary_constraint
+      (argument
+       (variable
+        (identifier)))
+      (argument
+       (range_expression
+        (argument
+         (constant
+          (decimal)))
+        (argument
+         (constant
+          (decimal)))))))))))
+
+
+==================================
 range expression
 ==================================
 

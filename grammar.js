@@ -303,8 +303,10 @@ module.exports = grammar({
         field("range_from", $.argument),
         ",",
         field("range_to", $.argument),
-        ",",
-        field("range_step", optional($.argument)),
+        optional(seq(
+            ",",
+            field("range_step", optional($.argument))
+        )),
         ")"
     ),
     functor_invocation: $ => seq(
