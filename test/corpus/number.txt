@@ -89,3 +89,29 @@ B(0b101110).
    (argument
     (constant
      (binary))))))
+
+
+==================================
+unsigned numbers
+==================================
+
+U(0u).
+U(99u).
+
+----------------------------------
+
+(source_file
+ (fact
+  (atom
+   (qualified_name
+    (identifier))
+   (argument
+    (constant
+     (unsigned)))))
+ (fact
+  (atom
+   (qualified_name
+    (identifier))
+   (argument
+    (constant
+     (unsigned))))))

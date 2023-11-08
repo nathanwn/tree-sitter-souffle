@@ -2004,6 +2004,10 @@
       "type": "PATTERN",
       "value": "[0-9]+"
     },
+    "unsigned": {
+      "type": "PATTERN",
+      "value": "[0-9]+u"
+    },
     "float": {
       "type": "TOKEN",
       "content": {
@@ -2059,6 +2063,10 @@
         {
           "type": "SYMBOL",
           "name": "decimal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "unsigned"
         },
         {
           "type": "SYMBOL",

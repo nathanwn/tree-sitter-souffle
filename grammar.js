@@ -301,6 +301,7 @@ module.exports = grammar({
     hex: _ => /0x([0-9]|[A-F]|[a-f])+/,
     binary: _ => /0b[0-1]+/,
     decimal: _ => /[0-9]+/,
+    unsigned: _ => /[0-9]+u/,
     float: _ => {
       const decimal = /[0-9]+/;
       const exponent = seq(/[eE][\+-]?/, decimal);
@@ -310,6 +311,7 @@ module.exports = grammar({
         $.hex,
         $.binary,
         $.decimal,
+        $.unsigned,
         $.float,
     ),
   },

@@ -339,6 +339,10 @@
         {
           "type": "string_literal",
           "named": true
+        },
+        {
+          "type": "unsigned",
+          "named": true
         }
       ]
     }
@@ -1448,6 +1452,10 @@
   {
     "type": "unsigned",
     "named": false
+  },
+  {
+    "type": "unsigned",
+    "named": true
   },
   {
     "type": "{",
