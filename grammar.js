@@ -367,7 +367,7 @@ module.exports = grammar({
     ),
     record_type: $ => seq(
         "[",
-        commaSep1($.attribute),
+        optional(commaSep1($.attribute)),
         "]",
     ),
     abstract_data_type: $ => sep1($.adt_branch, "|"),

@@ -30,3 +30,19 @@ record type
           (attribute_name)
           (type_name
             (primitive_type)))))))
+
+
+====================================
+empty record type
+====================================
+
+.type Nop = []
+
+------------------------------------
+
+(source_file
+ (type_decl
+  (type_kw)
+  (identifier)
+  (eq_type_decl
+   (record_type))))
