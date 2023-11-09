@@ -59,6 +59,7 @@ module.exports = grammar({
     preproc_directive: $ => choice(
         $.preproc_include,
         $.preproc_if,
+        $.preproc_elif,
         $.preproc_else,
         $.preproc_ifdef,
         $.preproc_ifndef,
@@ -71,6 +72,10 @@ module.exports = grammar({
     ),
     preproc_if: $ => seq(
         "#if",
+        $._preproc_exp,
+    ),
+    preproc_elif: $ => seq(
+        "#elif",
         $._preproc_exp,
     ),
     preproc_else: _ => "#else",

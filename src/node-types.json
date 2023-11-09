@@ -982,6 +982,10 @@
           "named": true
         },
         {
+          "type": "preproc_elif",
+          "named": true
+        },
+        {
           "type": "preproc_else",
           "named": true
         },
@@ -1003,6 +1007,45 @@
         },
         {
           "type": "preproc_include",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "preproc_elif",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "binary",
+          "named": true
+        },
+        {
+          "type": "decimal",
+          "named": true
+        },
+        {
+          "type": "hex",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "preproc_binary_exp",
+          "named": true
+        },
+        {
+          "type": "preproc_defined_exp",
+          "named": true
+        },
+        {
+          "type": "unsigned",
           "named": true
         }
       ]
@@ -1557,6 +1600,10 @@
   },
   {
     "type": "#define",
+    "named": false
+  },
+  {
+    "type": "#elif",
     "named": false
   },
   {

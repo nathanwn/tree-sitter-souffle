@@ -70,6 +70,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "preproc_elif"
+        },
+        {
+          "type": "SYMBOL",
           "name": "preproc_else"
         },
         {
@@ -114,6 +118,19 @@
         {
           "type": "STRING",
           "value": "#if"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_preproc_exp"
+        }
+      ]
+    },
+    "preproc_elif": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "#elif"
         },
         {
           "type": "SYMBOL",
@@ -2650,36 +2667,36 @@
           "name": "comp_kw"
         },
         {
-          "type": "SEQ",
+          "type": "SYMBOL",
+          "name": "component_type"
+        },
+        {
+          "type": "CHOICE",
           "members": [
             {
-              "type": "SYMBOL",
-              "name": "component_type"
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": ":"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": ","
+                    }
+                  ]
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "component_type"
+                }
+              ]
             },
             {
-              "type": "REPEAT",
-              "content": {
-                "type": "SEQ",
-                "members": [
-                  {
-                    "type": "CHOICE",
-                    "members": [
-                      {
-                        "type": "STRING",
-                        "value": ":"
-                      },
-                      {
-                        "type": "STRING",
-                        "value": ","
-                      }
-                    ]
-                  },
-                  {
-                    "type": "SYMBOL",
-                    "name": "component_type"
-                  }
-                ]
-              }
+              "type": "BLANK"
             }
           ]
         },
