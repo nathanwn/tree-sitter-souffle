@@ -848,6 +848,18 @@
         {
           "type": "STRING",
           "value": "overridable"
+        },
+        {
+          "type": "STRING",
+          "value": "input"
+        },
+        {
+          "type": "STRING",
+          "value": "output"
+        },
+        {
+          "type": "STRING",
+          "value": "printsize"
         }
       ]
     },
@@ -2306,12 +2318,20 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "SYMBOL",
-              "name": "subtype_decl"
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "subtype_decl"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "eq_type_decl"
+                }
+              ]
             },
             {
-              "type": "SYMBOL",
-              "name": "eq_type_decl"
+              "type": "BLANK"
             }
           ]
         }
@@ -2667,36 +2687,36 @@
           "name": "comp_kw"
         },
         {
-          "type": "SYMBOL",
-          "name": "component_type"
-        },
-        {
-          "type": "CHOICE",
+          "type": "SEQ",
           "members": [
             {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "CHOICE",
-                  "members": [
-                    {
-                      "type": "STRING",
-                      "value": ":"
-                    },
-                    {
-                      "type": "STRING",
-                      "value": ","
-                    }
-                  ]
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "component_type"
-                }
-              ]
+              "type": "SYMBOL",
+              "name": "component_type"
             },
             {
-              "type": "BLANK"
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "CHOICE",
+                    "members": [
+                      {
+                        "type": "STRING",
+                        "value": ":"
+                      },
+                      {
+                        "type": "STRING",
+                        "value": ","
+                      }
+                    ]
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "component_type"
+                  }
+                ]
+              }
             }
           ]
         },

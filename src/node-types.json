@@ -1844,11 +1844,11 @@
   },
   {
     "type": "float",
-    "named": false
+    "named": true
   },
   {
     "type": "float",
-    "named": true
+    "named": false
   },
   {
     "type": "functor_kw",
@@ -1872,6 +1872,10 @@
   },
   {
     "type": "inline",
+    "named": false
+  },
+  {
+    "type": "input",
     "named": false
   },
   {
@@ -1947,6 +1951,10 @@
     "named": false
   },
   {
+    "type": "output",
+    "named": false
+  },
+  {
     "type": "output_kw",
     "named": true
   },
@@ -1981,6 +1989,10 @@
   {
     "type": "preproc_macro",
     "named": true
+  },
+  {
+    "type": "printsize",
+    "named": false
   },
   {
     "type": "printsize_kw",
@@ -2040,11 +2052,11 @@
   },
   {
     "type": "unsigned",
-    "named": false
+    "named": true
   },
   {
     "type": "unsigned",
-    "named": true
+    "named": false
   },
   {
     "type": "{",

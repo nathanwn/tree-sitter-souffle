@@ -154,7 +154,11 @@ module.exports = grammar({
         "no_inline",
         "inline",
         "override",
-        "overridable"
+        "overridable",
+        // legacy syntax
+        "input",
+        "output",
+        "printsize"
     ),
     choice_domain: $ => seq(
         "choice-domain",
@@ -351,10 +355,10 @@ module.exports = grammar({
     type_decl: $ => seq(
         $.type_kw,
         field("type_ref", $.identifier),
-        choice(
+        optional(choice(
             $.subtype_decl,
             $.eq_type_decl,
-        )
+        ))
     ),
     subtype_decl: $ => seq("<:", $.type_name),
     eq_type_decl: $ => seq("=",
