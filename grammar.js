@@ -453,7 +453,7 @@ module.exports = grammar({
       /[^*]*\*+([^/*][^*]*\*+)*/,
       '/'
     )),
-    identifier: _ => /[a-zA-Z_][a-zA-Z0-9_]*/,
+    identifier: _ => /[\?a-zA-Z_][\?a-zA-Z0-9_]*/,
     hex: _ => /0x([0-9]|[A-F]|[a-f])+/,
     binary: _ => /0b[0-1]+/,
     decimal: _ => /[0-9]+/,
