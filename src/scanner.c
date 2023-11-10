@@ -16,6 +16,8 @@ enum TokenType {
     COMP_KW,
     INIT_KW,
     OVERRIDE_KW,
+    NUMBER_TYPE_KW,
+    SYMBOL_TYPE_KW,
     // MAX_AGGREGATOR_KW,
     // MIN_AGGREGATOR_KW,
 };
@@ -131,6 +133,14 @@ bool tree_sitter_souffle_external_scanner_scan(void *payload, TSLexer *lexer,
     }
     if (valid_symbols[OVERRIDE_KW] && strcmp(token, ".override") == 0) {
         lexer->result_symbol = OVERRIDE_KW;
+        matched = true;
+    }
+    if (valid_symbols[NUMBER_TYPE_KW] && strcmp(token, ".number_type") == 0) {
+        lexer->result_symbol = NUMBER_TYPE_KW;
+        matched = true;
+    }
+    if (valid_symbols[SYMBOL_TYPE_KW] && strcmp(token, ".symbol_type") == 0) {
+        lexer->result_symbol = SYMBOL_TYPE_KW;
         matched = true;
     }
 

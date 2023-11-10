@@ -31,6 +31,9 @@ module.exports = grammar({
     $.comp_kw,
     $.init_kw,
     $.override_kw,
+    /// deprecated keywords
+    $.number_type_kw,
+    $.symbol_type_kw,
     // $.max_aggregator_kw,
     // $.min_aggregator_kw,
   ],
@@ -59,6 +62,7 @@ module.exports = grammar({
         $.rule,
         $.fact,
         $.type_decl,
+        $.deprecated_type_decl,
         $.functor_decl,
         $.component_decl,
         $.component_init,
@@ -371,6 +375,10 @@ module.exports = grammar({
             $.subtype_decl,
             $.eq_type_decl,
         ))
+    ),
+    deprecated_type_decl: $ => seq(
+        choice($.number_type_kw, $.symbol_type_kw),
+        $.type_name
     ),
     subtype_decl: $ => seq("<:", $.type_name),
     eq_type_decl: $ => seq("=",

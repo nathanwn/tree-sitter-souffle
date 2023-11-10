@@ -37,6 +37,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "deprecated_type_decl"
+        },
+        {
+          "type": "SYMBOL",
           "name": "functor_decl"
         },
         {
@@ -2350,6 +2354,28 @@
         }
       ]
     },
+    "deprecated_type_decl": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "number_type_kw"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "symbol_type_kw"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "type_name"
+        }
+      ]
+    },
     "subtype_decl": {
       "type": "SEQ",
       "members": [
@@ -3201,6 +3227,14 @@
     {
       "type": "SYMBOL",
       "name": "override_kw"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "number_type_kw"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "symbol_type_kw"
     }
   ],
   "inline": [],

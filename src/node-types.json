@@ -468,6 +468,29 @@
     }
   },
   {
+    "type": "deprecated_type_decl",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "number_type_kw",
+          "named": true
+        },
+        {
+          "type": "symbol_type_kw",
+          "named": true
+        },
+        {
+          "type": "type_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "directive",
     "named": true,
     "fields": {},
@@ -1371,6 +1394,10 @@
           "named": true
         },
         {
+          "type": "deprecated_type_decl",
+          "named": true
+        },
+        {
           "type": "directive",
           "named": true
         },
@@ -1844,11 +1871,11 @@
   },
   {
     "type": "float",
-    "named": false
+    "named": true
   },
   {
     "type": "float",
-    "named": true
+    "named": false
   },
   {
     "type": "functor_kw",
@@ -1935,6 +1962,10 @@
     "named": false
   },
   {
+    "type": "number_type_kw",
+    "named": true
+  },
+  {
     "type": "ord",
     "named": false
   },
@@ -2011,6 +2042,10 @@
     "named": false
   },
   {
+    "type": "symbol_type_kw",
+    "named": true
+  },
+  {
     "type": "to_float",
     "named": false
   },
@@ -2036,11 +2071,11 @@
   },
   {
     "type": "unsigned",
-    "named": true
+    "named": false
   },
   {
     "type": "unsigned",
-    "named": false
+    "named": true
   },
   {
     "type": "{",
