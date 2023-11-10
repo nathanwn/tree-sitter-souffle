@@ -1978,73 +1978,86 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "CHOICE",
-                  "members": [
-                    {
-                      "type": "SYMBOL",
-                      "name": "max_aggregator_kw"
-                    },
-                    {
-                      "type": "SYMBOL",
-                      "name": "min_aggregator_kw"
-                    },
-                    {
-                      "type": "STRING",
-                      "value": "mean"
-                    },
-                    {
-                      "type": "STRING",
-                      "value": "sum"
-                    }
-                  ]
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "argument"
-                }
-              ]
-            },
-            {
-              "type": "STRING",
-              "value": "count"
-            }
-          ]
+          "type": "SYMBOL",
+          "name": "_aggregator_head"
         },
         {
           "type": "STRING",
           "value": ":"
         },
         {
-          "type": "CHOICE",
+          "type": "SYMBOL",
+          "name": "_aggregator_body"
+        }
+      ]
+    },
+    "_aggregator_head": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SEQ",
           "members": [
             {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "{"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "disjunction"
-                },
-                {
-                  "type": "STRING",
-                  "value": "}"
-                }
-              ]
+              "type": "ALIAS",
+              "content": {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": "max"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "min"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "mean"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "sum"
+                  }
+                ]
+              },
+              "named": true,
+              "value": "aggregate_op"
             },
             {
               "type": "SYMBOL",
-              "name": "atom"
+              "name": "argument"
             }
           ]
+        },
+        {
+          "type": "STRING",
+          "value": "count"
+        }
+      ]
+    },
+    "_aggregator_body": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "{"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "disjunction"
+            },
+            {
+              "type": "STRING",
+              "value": "}"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "atom"
         }
       ]
     },
@@ -3133,7 +3146,12 @@
       "value": "\\s"
     }
   ],
-  "conflicts": [],
+  "conflicts": [
+    [
+      "_aggregator_head",
+      "intrinsic_functor_name"
+    ]
+  ],
   "precedences": [],
   "externals": [
     {
@@ -3183,14 +3201,6 @@
     {
       "type": "SYMBOL",
       "name": "override_kw"
-    },
-    {
-      "type": "SYMBOL",
-      "name": "max_aggregator_kw"
-    },
-    {
-      "type": "SYMBOL",
-      "name": "min_aggregator_kw"
     }
   ],
   "inline": [],

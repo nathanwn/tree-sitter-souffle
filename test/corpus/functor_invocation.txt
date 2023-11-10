@@ -182,7 +182,7 @@ P(x) :- x = max (y) : Q(y).
            (identifier)))
          (argument
           (aggregator
-           (max_aggregator_kw)
+           (aggregate_op)
            (argument
             (variable
              (identifier)))
@@ -209,7 +209,7 @@ P(x) :- x = max (y) : Q(y).
            (identifier)))
          (argument
           (aggregator
-           (max_aggregator_kw)
+           (aggregate_op)
            (argument
             (paren_argument
              (argument

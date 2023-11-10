@@ -98,6 +98,7 @@ sum_fizzbuzz(s) :- s = sum x : { div_by_3(x), div_by_5(x) }.
         (identifier)))
       (argument
        (aggregator
+        (aggregate_op)
         (argument
          (variable
           (identifier)))

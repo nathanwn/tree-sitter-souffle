@@ -42,6 +42,10 @@
       "required": true,
       "types": [
         {
+          "type": "aggregate_op",
+          "named": true
+        },
+        {
           "type": "argument",
           "named": true
         },
@@ -51,14 +55,6 @@
         },
         {
           "type": "disjunction",
-          "named": true
-        },
-        {
-          "type": "max_aggregator_kw",
-          "named": true
-        },
-        {
-          "type": "min_aggregator_kw",
           "named": true
         }
       ]
@@ -1739,6 +1735,10 @@
     "named": false
   },
   {
+    "type": "aggregate_op",
+    "named": true
+  },
+  {
     "type": "as",
     "named": false
   },
@@ -1844,11 +1844,11 @@
   },
   {
     "type": "float",
-    "named": true
+    "named": false
   },
   {
     "type": "float",
-    "named": false
+    "named": true
   },
   {
     "type": "functor_kw",
@@ -1915,20 +1915,8 @@
     "named": false
   },
   {
-    "type": "max_aggregator_kw",
-    "named": true
-  },
-  {
-    "type": "mean",
-    "named": false
-  },
-  {
     "type": "min",
     "named": false
-  },
-  {
-    "type": "min_aggregator_kw",
-    "named": true
   },
   {
     "type": "nil",
@@ -2016,10 +2004,6 @@
   },
   {
     "type": "substr",
-    "named": false
-  },
-  {
-    "type": "sum",
     "named": false
   },
   {

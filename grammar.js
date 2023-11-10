@@ -31,14 +31,23 @@ module.exports = grammar({
     $.comp_kw,
     $.init_kw,
     $.override_kw,
-    $.max_aggregator_kw,
-    $.min_aggregator_kw,
+    // $.max_aggregator_kw,
+    // $.min_aggregator_kw,
   ],
 
   extras: $ => [
     $.line_comment,
     $.block_comment,
     /\s/
+  ],
+
+  conflicts: $ => [
+      // `max(...)` and `min(...)` can either be an aggregator head, or
+      // a functor invocation. Distinguishing between the two requires multiple
+      // lookaheads.
+      // Tree-sitter, being a GLR parser, can handle this case with the conflicts
+      // list.
+      [$._aggregator_head, $.intrinsic_functor_name],
   ],
 
   rules: {
@@ -300,21 +309,24 @@ module.exports = grammar({
     ),
     type_conversion: $ => seq("as", "(", $.argument, ",", $.type_name, ")"),
     aggregator: $ => seq(
-        choice(
-            seq(
-                choice(
-                    $.max_aggregator_kw,
-                    $.min_aggregator_kw,
-                    "mean", "sum"
-                ),
-            $.argument),
-            "count",
-        ),
+        $._aggregator_head,
         ":",
-        choice(
-            seq("{", $.disjunction, "}"),
-            $.atom
-        ),
+        $._aggregator_body
+    ),
+    _aggregator_head: $ => choice(
+        seq(
+            alias(choice(
+                // $.max_aggregator_kw,
+                // $.min_aggregator_kw,
+                "max", "min",
+                "mean", "sum"
+            ), $.aggregate_op),
+            $.argument),
+        "count",
+    ),
+    _aggregator_body: $ => choice(
+        seq("{", $.disjunction, "}"),
+        $.atom
     ),
     range_expression: $ => seq(
         "range",

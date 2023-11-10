@@ -16,8 +16,8 @@ enum TokenType {
     COMP_KW,
     INIT_KW,
     OVERRIDE_KW,
-    MAX_AGGREGATOR_KW,
-    MIN_AGGREGATOR_KW,
+    // MAX_AGGREGATOR_KW,
+    // MIN_AGGREGATOR_KW,
 };
 
 bool is_whitespace(int32_t c) {
@@ -133,52 +133,57 @@ bool tree_sitter_souffle_external_scanner_scan(void *payload, TSLexer *lexer,
         lexer->result_symbol = OVERRIDE_KW;
         matched = true;
     }
-    if (valid_symbols[MAX_AGGREGATOR_KW] || valid_symbols[MIN_AGGREGATOR_KW]) {
-        enum TokenType token_type = -1;
-        if (strcmp(token, "max") == 0) {
-            token_type = MAX_AGGREGATOR_KW;
-        } else if (strcmp(token, "min") == 0) {
-            token_type = MIN_AGGREGATOR_KW;
-        }
 
-        if (token_type != -1) {
-            skip_whitespaces(lexer);
+    // This issue now being handled using the `conflicts` feature of
+    // tree-sitter. This snippet of code is just kept here for future reference.
+    //
+    // if (valid_symbols[MAX_AGGREGATOR_KW] || valid_symbols[MIN_AGGREGATOR_KW])
+    // {
+    //     enum TokenType token_type = -1;
+    //     if (strcmp(token, "max") == 0) {
+    //         token_type = MAX_AGGREGATOR_KW;
+    //     } else if (strcmp(token, "min") == 0) {
+    //         token_type = MIN_AGGREGATOR_KW;
+    //     }
 
-            if (lexer->lookahead == '(') {
-                // Handle `max ( argument ) :`.
-                // If `max ( argument )` is followed by a `:`, then this
-                // should be an aggregator.
+    //     if (token_type != -1) {
+    //         skip_whitespaces(lexer);
 
-                // We first try to skip `( argument )`.
-                int32_t paren = 1;
-                advance(lexer);
+    //         if (lexer->lookahead == '(') {
+    //             // Handle `max ( argument ) :`.
+    //             // If `max ( argument )` is followed by a `:`, then this
+    //             // should be an aggregator.
 
-                for (int32_t c = lexer->lookahead;
-                     !lexer->eof(lexer) && paren > 0; c = advance(lexer)) {
-                    if (c == '(') {
-                        paren++;
-                    } else if (c == ')') {
-                        paren--;
-                    }
-                }
+    //             // We first try to skip `( argument )`.
+    //             int32_t paren = 1;
+    //             advance(lexer);
 
-                // Then, we try to match the colon `:`.
-                char *maybe_colon = next_token(lexer);
+    //             for (int32_t c = lexer->lookahead;
+    //                  !lexer->eof(lexer) && paren > 0; c = advance(lexer)) {
+    //                 if (c == '(') {
+    //                     paren++;
+    //                 } else if (c == ')') {
+    //                     paren--;
+    //                 }
+    //             }
 
-                if (strcmp(maybe_colon, ":") == 0) {
-                    lexer->result_symbol = token_type;
-                    matched = true;
-                }
+    //             // Then, we try to match the colon `:`.
+    //             char *maybe_colon = next_token(lexer);
 
-                free(maybe_colon);
-            } else {
-                // Handle `max argument :`.
-                // This is simple.
-                lexer->result_symbol = token_type;
-                matched = true;
-            }
-        }
-    }
+    //             if (strcmp(maybe_colon, ":") == 0) {
+    //                 lexer->result_symbol = token_type;
+    //                 matched = true;
+    //             }
+
+    //             free(maybe_colon);
+    //         } else {
+    //             // Handle `max argument :`.
+    //             // This is simple.
+    //             lexer->result_symbol = token_type;
+    //             matched = true;
+    //         }
+    //     }
+    // }
 
     free(token);
     return matched;
