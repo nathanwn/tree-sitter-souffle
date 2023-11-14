@@ -456,7 +456,11 @@ module.exports = grammar({
         "=",
         $.component_type
     ),
-    pragma: $ => seq(".pragma", $.string_literal, optional($.string_literal)),
+    pragma: $ => seq(
+        ".pragma",
+        field("flag_name", $.string_literal),
+        field("flag_value", optional($.string_literal))
+    ),
     atom: $ => seq(
         field("name", $.qualified_name),
         "(",
