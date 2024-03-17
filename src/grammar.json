@@ -2261,6 +2261,62 @@
         {
           "type": "STRING",
           "value": "max"
+        },
+        {
+          "type": "STRING",
+          "value": "sin"
+        },
+        {
+          "type": "STRING",
+          "value": "cos"
+        },
+        {
+          "type": "STRING",
+          "value": "tan"
+        },
+        {
+          "type": "STRING",
+          "value": "asin"
+        },
+        {
+          "type": "STRING",
+          "value": "acos"
+        },
+        {
+          "type": "STRING",
+          "value": "atan"
+        },
+        {
+          "type": "STRING",
+          "value": "sinh"
+        },
+        {
+          "type": "STRING",
+          "value": "cosh"
+        },
+        {
+          "type": "STRING",
+          "value": "tanh"
+        },
+        {
+          "type": "STRING",
+          "value": "asinh"
+        },
+        {
+          "type": "STRING",
+          "value": "acosh"
+        },
+        {
+          "type": "STRING",
+          "value": "atanh"
+        },
+        {
+          "type": "STRING",
+          "value": "log"
+        },
+        {
+          "type": "STRING",
+          "value": "exp"
         }
       ]
     },
@@ -3248,3 +3304,4 @@
   "inline": [],
   "supertypes": []
 }
+

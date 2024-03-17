@@ -357,6 +357,11 @@ module.exports = grammar({
         "cat", "strlen", "substr",
         "autoinc",
         "min", "max",
+        "sin", "cos", "tan",
+        "asin", "acos", "atan",
+        "sinh", "cosh", "tanh",
+        "asinh", "acosh", "atanh",
+        "log", "exp",
     ),
     paren_argument: $ => seq('(', $.argument, ')'),
     attribute: $ => seq(

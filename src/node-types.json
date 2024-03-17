@@ -1773,11 +1773,35 @@
     "named": false
   },
   {
+    "type": "acos",
+    "named": false
+  },
+  {
+    "type": "acosh",
+    "named": false
+  },
+  {
     "type": "aggregate_op",
     "named": true
   },
   {
     "type": "as",
+    "named": false
+  },
+  {
+    "type": "asin",
+    "named": false
+  },
+  {
+    "type": "asinh",
+    "named": false
+  },
+  {
+    "type": "atan",
+    "named": false
+  },
+  {
+    "type": "atanh",
     "named": false
   },
   {
@@ -1853,6 +1877,14 @@
     "named": true
   },
   {
+    "type": "cos",
+    "named": false
+  },
+  {
+    "type": "cosh",
+    "named": false
+  },
+  {
     "type": "count",
     "named": false
   },
@@ -1874,6 +1906,10 @@
   },
   {
     "type": "eqrel",
+    "named": false
+  },
+  {
+    "type": "exp",
     "named": false
   },
   {
@@ -1934,6 +1970,10 @@
   },
   {
     "type": "lnot",
+    "named": false
+  },
+  {
+    "type": "log",
     "named": false
   },
   {
@@ -2033,6 +2073,14 @@
     "named": false
   },
   {
+    "type": "sin",
+    "named": false
+  },
+  {
+    "type": "sinh",
+    "named": false
+  },
+  {
     "type": "stateful",
     "named": true
   },
@@ -2055,6 +2103,14 @@
   {
     "type": "symbol_type_kw",
     "named": true
+  },
+  {
+    "type": "tan",
+    "named": false
+  },
+  {
+    "type": "tanh",
+    "named": false
   },
   {
     "type": "to_float",
@@ -2082,11 +2138,11 @@
   },
   {
     "type": "unsigned",
-    "named": false
+    "named": true
   },
   {
     "type": "unsigned",
-    "named": true
+    "named": false
   },
   {
     "type": "{",
