@@ -367,7 +367,7 @@ module.exports = grammar({
     attribute: $ => seq(
         field("name", $.identifier),
         ":",
-        $.type_name
+        field("type", $.type_name),
     ),
     fact: $ => seq(
         $.atom,

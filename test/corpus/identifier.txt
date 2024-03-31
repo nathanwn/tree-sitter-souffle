@@ -12,9 +12,9 @@ identifiers starting with ?
   name: (identifier)
   (attribute
    name: (identifier)
-   (type_name
+   type: (type_name
     (primitive_type)))
   (attribute
    name: (identifier)
-   (type_name
+   type: (type_name
     (primitive_type)))))

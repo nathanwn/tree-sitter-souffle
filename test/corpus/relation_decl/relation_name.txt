@@ -12,12 +12,12 @@ single relation name
     name: (identifier)
     (attribute
       name: (identifier)
-      (type_name
+      type: (type_name
         (user_defined_type_name
           (identifier))))
     (attribute
       name: (identifier)
-      (type_name
+      type: (type_name
         (user_defined_type_name
           (identifier))))))
 
@@ -37,11 +37,11 @@ multiple relation name
     name: (identifier)
     (attribute
       name: (identifier)
-      (type_name
+      type: (type_name
         (user_defined_type_name
           (identifier))))
     (attribute
       name: (identifier)
-      (type_name
+      type: (type_name
         (user_defined_type_name
           (identifier))))))
