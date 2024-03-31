@@ -1290,7 +1290,7 @@
     "type": "relation_decl",
     "named": true,
     "fields": {
-      "relation_name": {
+      "name": {
         "multiple": true,
         "required": true,
         "types": [
@@ -1500,7 +1500,7 @@
     "type": "type_decl",
     "named": true,
     "fields": {
-      "type_ref": {
+      "name": {
         "multiple": false,
         "required": true,
         "types": [

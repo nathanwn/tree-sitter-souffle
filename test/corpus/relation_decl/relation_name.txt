@@ -1,5 +1,5 @@
 ====================================
-single relation_name
+single relation name
 ====================================
 
 .decl Friendship(person_a: string, person_b: string)
@@ -9,7 +9,7 @@ single relation_name
 (source_file
   (relation_decl
     (decl_kw)
-    relation_name: (identifier)
+    name: (identifier)
     (attribute
       (attribute_name)
       (type_name
@@ -23,7 +23,7 @@ single relation_name
 
 
 ====================================
-multiple relation_name
+multiple relation name
 ====================================
 
 .decl Love, Hate(person_a: string, person_b: string)
@@ -33,8 +33,8 @@ multiple relation_name
 (source_file
   (relation_decl
     (decl_kw)
-    relation_name: (identifier)
-    relation_name: (identifier)
+    name: (identifier)
+    name: (identifier)
     (attribute
       (attribute_name)
       (type_name

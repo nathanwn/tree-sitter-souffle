@@ -9,7 +9,7 @@ choice-domain 1 single attribute
 (source_file
   (relation_decl
     (decl_kw)
-    relation_name: (identifier)
+    name: (identifier)
     (attribute
       (attribute_name)
       (type_name
@@ -36,7 +36,7 @@ choice-domain 2 single attributes
 (source_file
   (relation_decl
     (decl_kw)
-    relation_name: (identifier)
+    name: (identifier)
     (attribute
       (attribute_name)
       (type_name
@@ -65,7 +65,7 @@ choice-domain 1 tuple attribute
 (source_file
   (relation_decl
     (decl_kw)
-    relation_name: (identifier)
+    name: (identifier)
     (attribute
       (attribute_name)
       (type_name
@@ -104,7 +104,7 @@ choice-domain 2 tuple attributes
 (source_file
   (relation_decl
     (decl_kw)
-    relation_name: (identifier)
+    name: (identifier)
     (attribute
       (attribute_name)
       (type_name

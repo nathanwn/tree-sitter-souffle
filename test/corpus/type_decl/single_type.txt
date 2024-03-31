@@ -9,7 +9,7 @@ primitive type "number"
 (source_file
   (type_decl
     (type_kw)
-    type_ref: (identifier)
+    name: (identifier)
     (eq_type_decl
       (type_name
         (primitive_type)))))
@@ -26,7 +26,7 @@ user-defined type - component type
 (source_file
   (type_decl
     (type_kw)
-    type_ref: (identifier)
+    name: (identifier)
     (eq_type_decl
       (type_name
           (user_defined_type_name

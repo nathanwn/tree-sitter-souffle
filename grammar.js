@@ -150,7 +150,7 @@ module.exports = grammar({
     ),
     relation_decl: $ => seq(
         $.decl_kw,
-        field("relation_name", commaSep1($.identifier)),
+        field("name", commaSep1($.identifier)),
         "(",
         optional(commaSep1($.attribute)),
         ")",
@@ -375,7 +375,7 @@ module.exports = grammar({
     ),
     type_decl: $ => seq(
         $.type_kw,
-        field("type_ref", $.identifier),
+        field("name", $.identifier),
         optional(choice(
             $.subtype_decl,
             $.eq_type_decl,
