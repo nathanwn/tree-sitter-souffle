@@ -365,7 +365,7 @@ module.exports = grammar({
     ),
     paren_argument: $ => seq('(', $.argument, ')'),
     attribute: $ => seq(
-        alias($.identifier, $.attribute_name),
+        field("name", $.identifier),
         ":",
         $.type_name
     ),

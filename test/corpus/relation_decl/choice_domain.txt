@@ -11,12 +11,12 @@ choice-domain 1 single attribute
     (decl_kw)
     name: (identifier)
     (attribute
-      (attribute_name)
+      name: (identifier)
       (type_name
         (user_defined_type_name
           (identifier))))
     (attribute
-      (attribute_name)
+      name: (identifier)
       (type_name
         (user_defined_type_name
           (identifier))))
@@ -38,12 +38,12 @@ choice-domain 2 single attributes
     (decl_kw)
     name: (identifier)
     (attribute
-      (attribute_name)
+      name: (identifier)
       (type_name
         (user_defined_type_name
           (identifier))))
     (attribute
-      (attribute_name)
+      name: (identifier)
       (type_name
         (user_defined_type_name
           (identifier))))
@@ -67,22 +67,22 @@ choice-domain 1 tuple attribute
     (decl_kw)
     name: (identifier)
     (attribute
-      (attribute_name)
+      name: (identifier)
       (type_name
         (user_defined_type_name
           (identifier))))
     (attribute
-      (attribute_name)
+      name: (identifier)
       (type_name
         (user_defined_type_name
           (identifier))))
     (attribute
-      (attribute_name)
+      name: (identifier)
       (type_name
         (user_defined_type_name
           (identifier))))
     (attribute
-      (attribute_name)
+      name: (identifier)
       (type_name
         (user_defined_type_name
           (identifier))))
@@ -106,22 +106,22 @@ choice-domain 2 tuple attributes
     (decl_kw)
     name: (identifier)
     (attribute
-      (attribute_name)
+      name: (identifier)
       (type_name
         (user_defined_type_name
           (identifier))))
     (attribute
-      (attribute_name)
+      name: (identifier)
       (type_name
         (user_defined_type_name
           (identifier))))
     (attribute
-      (attribute_name)
+      name: (identifier)
       (type_name
         (user_defined_type_name
           (identifier))))
     (attribute
-      (attribute_name)
+      name: (identifier)
       (type_name
         (user_defined_type_name
           (identifier))))

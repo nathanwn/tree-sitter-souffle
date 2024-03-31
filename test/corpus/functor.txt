@@ -28,7 +28,7 @@ functor with one argument
   (identifier)
   (functor_attribute
    (attribute
-    (attribute_name)
+    (identifier)
     (type_name
      (primitive_type))))
   (type_name
@@ -49,12 +49,12 @@ functor with two arguments
   (identifier)
   (functor_attribute
    (attribute
-    (attribute_name)
+    (identifier)
     (type_name
      (primitive_type))))
   (functor_attribute
    (attribute
-    (attribute_name)
+    (identifier)
     (type_name
      (primitive_type))))
   (type_name

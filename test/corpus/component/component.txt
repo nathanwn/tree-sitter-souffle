@@ -26,7 +26,7 @@ sample component
    (decl_kw)
    (identifier)
    (attribute
-    (attribute_name)
+    (identifier)
     (type_name
      (primitive_type)))
    (relation_qualifier))

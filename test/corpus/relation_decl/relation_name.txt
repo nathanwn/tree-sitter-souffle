@@ -11,12 +11,12 @@ single relation name
     (decl_kw)
     name: (identifier)
     (attribute
-      (attribute_name)
+      name: (identifier)
       (type_name
         (user_defined_type_name
           (identifier))))
     (attribute
-      (attribute_name)
+      name: (identifier)
       (type_name
         (user_defined_type_name
           (identifier))))))
@@ -36,12 +36,12 @@ multiple relation name
     name: (identifier)
     name: (identifier)
     (attribute
-      (attribute_name)
+      name: (identifier)
       (type_name
         (user_defined_type_name
           (identifier))))
     (attribute
-      (attribute_name)
+      name: (identifier)
       (type_name
         (user_defined_type_name
           (identifier))))))

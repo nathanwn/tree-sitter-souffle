@@ -9,12 +9,12 @@ identifiers starting with ?
 (source_file
  (relation_decl
   (decl_kw)
-  (identifier)
+  name: (identifier)
   (attribute
-   (attribute_name)
+   name: (identifier)
    (type_name
     (primitive_type)))
   (attribute
-   (attribute_name)
+   name: (identifier)
    (type_name
     (primitive_type)))))

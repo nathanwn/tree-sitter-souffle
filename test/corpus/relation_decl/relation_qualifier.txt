@@ -11,11 +11,11 @@ single relation_qualifier
     (decl_kw)
     name: (identifier)
     (attribute
-      (attribute_name)
+      name: (identifier)
       (type_name
         (primitive_type)))
     (attribute
-      (attribute_name)
+      name: (identifier)
       (type_name
         (primitive_type)))
     (relation_qualifier)))
@@ -34,11 +34,11 @@ multiple relation_qualifier
     (decl_kw)
     name: (identifier)
     (attribute
-      (attribute_name)
+      name: (identifier)
       (type_name
         (primitive_type)))
     (attribute
-      (attribute_name)
+      name: (identifier)
       (type_name
         (primitive_type)))
     (relation_qualifier)))
