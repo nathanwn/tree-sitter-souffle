@@ -1,0 +1,32 @@
+===================================
+subsumption
+===================================
+
+A(x) :- B(x), !C(x).
+
+-----------------------------------
+
+(source_file
+  (rule
+    (rule_head
+      (atom
+        (qualified_name
+          (identifier))
+        (argument
+          (variable
+            (identifier)))))
+    (disjunction
+      (conjunction
+        (atom
+          (qualified_name
+            (identifier))
+          (argument
+            (variable
+              (identifier))))
+        (neg)
+        (atom
+          (qualified_name
+            (identifier))
+          (argument
+            (variable
+              (identifier))))))))

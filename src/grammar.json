@@ -1081,11 +1081,16 @@
           "type": "SEQ",
           "members": [
             {
-              "type": "REPEAT",
+              "type": "ALIAS",
               "content": {
-                "type": "STRING",
-                "value": "!"
-              }
+                "type": "REPEAT",
+                "content": {
+                  "type": "STRING",
+                  "value": "!"
+                }
+              },
+              "named": true,
+              "value": "neg"
             },
             {
               "type": "CHOICE",
@@ -1132,11 +1137,16 @@
                 "type": "SEQ",
                 "members": [
                   {
-                    "type": "REPEAT",
+                    "type": "ALIAS",
                     "content": {
-                      "type": "STRING",
-                      "value": "!"
-                    }
+                      "type": "REPEAT",
+                      "content": {
+                        "type": "STRING",
+                        "value": "!"
+                      }
+                    },
+                    "named": true,
+                    "value": "neg"
                   },
                   {
                     "type": "CHOICE",

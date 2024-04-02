@@ -416,6 +416,10 @@
         {
           "type": "disjunction",
           "named": true
+        },
+        {
+          "type": "neg",
+          "named": true
         }
       ]
     }
@@ -776,6 +780,11 @@
   },
   {
     "type": "intrinsic_functor_name",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "neg",
     "named": true,
     "fields": {}
   },

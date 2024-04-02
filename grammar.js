@@ -201,7 +201,7 @@ module.exports = grammar({
     disjunction: $ => sep1($.conjunction, ";"),
     conjunction: $ => commaSep1(
         seq(
-            repeat("!"),
+            alias(repeat("!"), $.neg),
             choice(
                 $.atom,
                 $.constraint,
