@@ -199,19 +199,18 @@ module.exports = grammar({
     rule_head: $ => commaSep1($.atom),
     subsumption_head: $ => seq($.atom, "<=", $.atom),
     disjunction: $ => sep1($.conjunction, ";"),
-    conjunction: $ => commaSep1(
+    conjunction: $ => commaSep1($.conjunction_clause),
+    conjunction_clause: $ => seq(
+      alias(repeat("!"), $.neg),
+      choice(
+        $.atom,
+        $.constraint,
         seq(
-            alias(repeat("!"), $.neg),
-            choice(
-                $.atom,
-                $.constraint,
-                seq(
-                    "(",
-                    $.disjunction,
-                    ")"
-                )
-            ),
+          "(",
+            $.disjunction,
+            ")"
         )
+      ),
     ),
     constraint: $ => choice(
         $.binary_constraint,

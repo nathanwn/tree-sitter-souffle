@@ -1,6 +1,6 @@
-========================================
+================================================================================
 sample component
-========================================
+================================================================================
 
 .comp Base {
     .decl R(x:number) overridable
@@ -15,108 +15,112 @@ sample component
 }
 .init mySub = Sub
 
-----------------------------------------
+--------------------------------------------------------------------------------
 
 (source_file
- (component_decl
-  (comp_kw)
-  (component_type
-   (identifier))
-  (relation_decl
-   (decl_kw)
-   (identifier)
-   (attribute
-    (identifier)
-    (type_name
-     (primitive_type)))
-   (relation_qualifier))
-  (fact
-   (atom
-    (qualified_name
-     (identifier))
-    (argument
-     (constant
-      (decimal)))))
-  (rule
-   (rule_head
-    (atom
-     (qualified_name
+  (component_decl
+    (comp_kw)
+    (component_type
       (identifier))
-     (argument
-      (binary_operation
-       (argument
-        (variable
-         (identifier)))
-       (argument
-        (constant
-         (decimal)))))))
-   (disjunction
-    (conjunction
-     (atom
-      (qualified_name
-       (identifier))
-      (argument
-       (variable
-        (identifier))))
-     (constraint
-      (binary_constraint
-       (argument
-        (variable
-         (identifier)))
-       (argument
-        (constant
-         (decimal))))))))
+    (relation_decl
+      (decl_kw)
+      (identifier)
+      (attribute
+        (identifier)
+        (type_name
+          (primitive_type)))
+      (relation_qualifier))
+    (fact
+      (atom
+        (qualified_name
+          (identifier))
+        (argument
+          (constant
+            (decimal)))))
+    (rule
+      (rule_head
+        (atom
+          (qualified_name
+            (identifier))
+          (argument
+            (binary_operation
+              (argument
+                (variable
+                  (identifier)))
+              (argument
+                (constant
+                  (decimal)))))))
+      (disjunction
+        (conjunction
+          (conjunction_clause
+            (atom
+              (qualified_name
+                (identifier))
+              (argument
+                (variable
+                  (identifier)))))
+          (conjunction_clause
+            (constraint
+              (binary_constraint
+                (argument
+                  (variable
+                    (identifier)))
+                (argument
+                  (constant
+                    (decimal)))))))))
     (directive
-     (output_kw)
-     (qualified_name
-      (identifier))))
-    (component_decl
-     (comp_kw)
-     (component_type
+      (output_kw)
+      (qualified_name
+        (identifier))))
+  (component_decl
+    (comp_kw)
+    (component_type
       (identifier))
-     (component_type
+    (component_type
       (identifier))
-     (component_override
+    (component_override
       (override_kw)
       (identifier))
-     (fact
+    (fact
       (atom
-       (qualified_name
-        (identifier))
-       (argument
-        (constant
-         (decimal)))))
-     (rule
-      (rule_head
-       (atom
         (qualified_name
-         (identifier))
-        (argument
-         (binary_operation
-          (argument
-           (variable
-            (identifier)))
-          (argument
-           (constant
-            (decimal)))))))
-      (disjunction
-       (conjunction
-        (atom
-         (qualified_name
           (identifier))
-         (argument
-          (variable
-           (identifier))))
-        (constraint
-         (binary_constraint
+        (argument
+          (constant
+            (decimal)))))
+    (rule
+      (rule_head
+        (atom
+          (qualified_name
+            (identifier))
           (argument
-           (variable
-            (identifier)))
-          (argument
-           (constant
-            (decimal)))))))))
-    (component_init
-     (init_kw)
-     (identifier)
-     (component_type
+            (binary_operation
+              (argument
+                (variable
+                  (identifier)))
+              (argument
+                (constant
+                  (decimal)))))))
+      (disjunction
+        (conjunction
+          (conjunction_clause
+            (atom
+              (qualified_name
+                (identifier))
+              (argument
+                (variable
+                  (identifier)))))
+          (conjunction_clause
+            (constraint
+              (binary_constraint
+                (argument
+                  (variable
+                    (identifier)))
+                (argument
+                  (constant
+                    (decimal))))))))))
+  (component_init
+    (init_kw)
+    (identifier)
+    (component_type
       (identifier))))

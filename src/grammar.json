@@ -1078,51 +1078,8 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "ALIAS",
-              "content": {
-                "type": "REPEAT",
-                "content": {
-                  "type": "STRING",
-                  "value": "!"
-                }
-              },
-              "named": true,
-              "value": "neg"
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "atom"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "constraint"
-                },
-                {
-                  "type": "SEQ",
-                  "members": [
-                    {
-                      "type": "STRING",
-                      "value": "("
-                    },
-                    {
-                      "type": "SYMBOL",
-                      "name": "disjunction"
-                    },
-                    {
-                      "type": "STRING",
-                      "value": ")"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
+          "type": "SYMBOL",
+          "name": "conjunction_clause"
         },
         {
           "type": "REPEAT",
@@ -1134,54 +1091,58 @@
                 "value": ","
               },
               {
-                "type": "SEQ",
-                "members": [
-                  {
-                    "type": "ALIAS",
-                    "content": {
-                      "type": "REPEAT",
-                      "content": {
-                        "type": "STRING",
-                        "value": "!"
-                      }
-                    },
-                    "named": true,
-                    "value": "neg"
-                  },
-                  {
-                    "type": "CHOICE",
-                    "members": [
-                      {
-                        "type": "SYMBOL",
-                        "name": "atom"
-                      },
-                      {
-                        "type": "SYMBOL",
-                        "name": "constraint"
-                      },
-                      {
-                        "type": "SEQ",
-                        "members": [
-                          {
-                            "type": "STRING",
-                            "value": "("
-                          },
-                          {
-                            "type": "SYMBOL",
-                            "name": "disjunction"
-                          },
-                          {
-                            "type": "STRING",
-                            "value": ")"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                ]
+                "type": "SYMBOL",
+                "name": "conjunction_clause"
               }
             ]
           }
+        }
+      ]
+    },
+    "conjunction_clause": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "REPEAT",
+            "content": {
+              "type": "STRING",
+              "value": "!"
+            }
+          },
+          "named": true,
+          "value": "neg"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "atom"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "constraint"
+            },
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "("
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "disjunction"
+                },
+                {
+                  "type": "STRING",
+                  "value": ")"
+                }
+              ]
+            }
+          ]
         }
       ]
     },

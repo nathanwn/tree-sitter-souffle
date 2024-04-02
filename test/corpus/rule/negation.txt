@@ -1,5 +1,5 @@
 ===================================
-subsumption
+negation
 ===================================
 
 A(x) :- B(x), !C(x).
@@ -17,16 +17,18 @@ A(x) :- B(x), !C(x).
             (identifier)))))
     (disjunction
       (conjunction
-        (atom
-          (qualified_name
-            (identifier))
-          (argument
-            (variable
-              (identifier))))
-        (neg)
-        (atom
-          (qualified_name
-            (identifier))
-          (argument
-            (variable
-              (identifier))))))))
+        (conjunction_clause
+          (atom
+            (qualified_name
+              (identifier))
+            (argument
+              (variable
+                (identifier)))))
+        (conjunction_clause
+          (neg)
+          (atom
+            (qualified_name
+              (identifier))
+            (argument
+              (variable
+                (identifier)))))))))
