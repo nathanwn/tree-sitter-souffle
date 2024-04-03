@@ -1036,16 +1036,24 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "atom"
+          "type": "FIELD",
+          "name": "first",
+          "content": {
+            "type": "SYMBOL",
+            "name": "atom"
+          }
         },
         {
           "type": "STRING",
           "value": "<="
         },
         {
-          "type": "SYMBOL",
-          "name": "atom"
+          "type": "FIELD",
+          "name": "second",
+          "content": {
+            "type": "SYMBOL",
+            "name": "atom"
+          }
         }
       ]
     },

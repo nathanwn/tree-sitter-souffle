@@ -197,7 +197,11 @@ module.exports = grammar({
         optional($.query_plan)
     ),
     rule_head: $ => commaSep1($.atom),
-    subsumption_head: $ => seq($.atom, "<=", $.atom),
+    subsumption_head: $ => seq(
+      field("first", $.atom),
+      "<=",
+      field("second", $.atom),
+    ),
     disjunction: $ => sep1($.conjunction, ";"),
     conjunction: $ => commaSep1($.conjunction_clause),
     conjunction_clause: $ => seq(
