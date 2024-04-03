@@ -20346,7 +20346,7 @@ static const TSParseActionEntry ts_parse_actions[] = {
   [754] = {.entry = {.count = 1, .reusable = true}}, SHIFT(21),
   [756] = {.entry = {.count = 1, .reusable = true}}, SHIFT(18),
   [758] = {.entry = {.count = 1, .reusable = false}}, SHIFT(18),
-  [760] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_binary_constraint, 3),
+  [760] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_binary_constraint, 3, .production_id = 8),
   [762] = {.entry = {.count = 1, .reusable = true}}, SHIFT(63),
   [764] = {.entry = {.count = 1, .reusable = true}}, SHIFT(26),
   [766] = {.entry = {.count = 1, .reusable = true}}, SHIFT(71),

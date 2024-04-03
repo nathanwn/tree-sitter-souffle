@@ -222,9 +222,9 @@ module.exports = grammar({
         // TODO: match and contains
     ),
     binary_constraint: $ => seq(
-        $.argument,
-        choice("<", ">", "<=", ">=", "=", "!="),
-        $.argument
+        field("lhs", $.argument),
+        field("op", choice("<", ">", "<=", ">=", "=", "!=")),
+        field("rhs", $.argument),
     ),
     query_plan: $ => seq(
         $.plan_kw,
