@@ -679,7 +679,18 @@
   {
     "type": "eq_type_decl",
     "named": true,
-    "fields": {},
+    "fields": {
+      "type_relation_op": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "=",
+            "named": false
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": false,
       "required": true,
@@ -1548,7 +1559,18 @@
   {
     "type": "subtype_decl",
     "named": true,
-    "fields": {},
+    "fields": {
+      "type_relation_op": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "<:",
+            "named": false
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": false,
       "required": true,

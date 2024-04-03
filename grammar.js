@@ -388,8 +388,8 @@ module.exports = grammar({
         choice($.number_type_kw, $.symbol_type_kw),
         $.type_name
     ),
-    subtype_decl: $ => seq("<:", $.type_name),
-    eq_type_decl: $ => seq("=",
+    subtype_decl: $ => seq(field("type_relation_op", "<:"), $.type_name),
+    eq_type_decl: $ => seq(field("type_relation_op", "="),
         choice(
             $.union_type,
             $.type_name,

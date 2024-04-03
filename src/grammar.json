@@ -2430,8 +2430,12 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "<:"
+          "type": "FIELD",
+          "name": "type_relation_op",
+          "content": {
+            "type": "STRING",
+            "value": "<:"
+          }
         },
         {
           "type": "SYMBOL",
@@ -2443,8 +2447,12 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "="
+          "type": "FIELD",
+          "name": "type_relation_op",
+          "content": {
+            "type": "STRING",
+            "value": "="
+          }
         },
         {
           "type": "CHOICE",
