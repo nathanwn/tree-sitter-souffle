@@ -61,6 +61,7 @@ A(x) :- x = range(-5, 10, 2).
                 (range_expression
                   (argument
                     (unary_operation
+                      (op)
                       (argument
                         (constant
                           (decimal)))))
@@ -100,6 +101,7 @@ A(x) :- x = range(-5, 10, 0.5).
                 (range_expression
                   (argument
                     (unary_operation
+                      (op)
                       (argument
                         (constant
                           (decimal)))))

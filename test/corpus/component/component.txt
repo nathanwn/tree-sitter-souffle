@@ -47,6 +47,7 @@ sample component
               (lhs
                 (variable
                   (identifier)))
+              (op)
               (rhs
                 (constant
                   (decimal)))))))
@@ -98,6 +99,7 @@ sample component
               (lhs
                 (variable
                   (identifier)))
+              (op)
               (rhs
                 (constant
                   (decimal)))))))

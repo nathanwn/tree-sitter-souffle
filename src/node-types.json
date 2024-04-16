@@ -244,6 +244,10 @@
           "named": true
         },
         {
+          "type": "op",
+          "named": true
+        },
+        {
           "type": "rhs",
           "named": true
         }
@@ -1781,11 +1785,15 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
           "type": "argument",
+          "named": true
+        },
+        {
+          "type": "op",
           "named": true
         }
       ]
@@ -1885,10 +1893,6 @@
   },
   {
     "type": "$",
-    "named": false
-  },
-  {
-    "type": "%",
     "named": false
   },
   {
@@ -1992,10 +1996,6 @@
     "named": false
   },
   {
-    "type": "^",
-    "named": false
-  },
-  {
     "type": "_",
     "named": false
   },
@@ -2036,10 +2036,6 @@
     "named": false
   },
   {
-    "type": "band",
-    "named": false
-  },
-  {
     "type": "binary",
     "named": true
   },
@@ -2048,27 +2044,7 @@
     "named": true
   },
   {
-    "type": "bnot",
-    "named": false
-  },
-  {
-    "type": "bor",
-    "named": false
-  },
-  {
     "type": "brie",
-    "named": false
-  },
-  {
-    "type": "bshl",
-    "named": false
-  },
-  {
-    "type": "bshr",
-    "named": false
-  },
-  {
-    "type": "bshru",
     "named": false
   },
   {
@@ -2077,10 +2053,6 @@
   },
   {
     "type": "btree_delete",
-    "named": false
-  },
-  {
-    "type": "bxor",
     "named": false
   },
   {
@@ -2180,10 +2152,6 @@
     "named": true
   },
   {
-    "type": "land",
-    "named": false
-  },
-  {
     "type": "limitsize_kw",
     "named": true
   },
@@ -2192,19 +2160,7 @@
     "named": true
   },
   {
-    "type": "lnot",
-    "named": false
-  },
-  {
     "type": "log",
-    "named": false
-  },
-  {
-    "type": "lor",
-    "named": false
-  },
-  {
-    "type": "lxor",
     "named": false
   },
   {
@@ -2237,6 +2193,10 @@
   },
   {
     "type": "number_type_kw",
+    "named": true
+  },
+  {
+    "type": "op",
     "named": true
   },
   {
@@ -2361,11 +2321,11 @@
   },
   {
     "type": "unsigned",
-    "named": true
+    "named": false
   },
   {
     "type": "unsigned",
-    "named": false
+    "named": true
   },
   {
     "type": "{",

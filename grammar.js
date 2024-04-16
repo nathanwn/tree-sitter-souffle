@@ -304,15 +304,35 @@ module.exports = grammar({
         ")",
     ),
     unary_operation: $ => prec(6, seq(
-        choice("-", "bnot", "lnot"),
+        alias(choice("-", "bnot", "lnot"), $.op),
         $.argument
     )),
     binary_operation: $ => choice(
-        prec.left(5, seq(alias($.argument, $.lhs), "^", alias($.argument, $.rhs))),
-        prec.left(4, seq(alias($.argument, $.lhs), choice("*", "/", "%"), alias($.argument, $.rhs))),
-        prec.left(3, seq(alias($.argument, $.lhs), choice("+", "-"), alias($.argument, $.rhs))),
-        prec.left(2, seq(alias($.argument, $.lhs), choice("land", "lor", "lxor"), alias($.argument, $.rhs))),
-        prec.left(1, seq(alias($.argument, $.lhs), choice("band", "bor", "bxor", "bshl", "bshr", "bshru"), alias($.argument, $.rhs)))
+        prec.left(5, seq(
+          alias($.argument, $.lhs),
+          alias("^", $.op),
+          alias($.argument, $.rhs))
+        ),
+        prec.left(4, seq(
+          alias($.argument, $.lhs),
+          alias(choice("*", "/", "%"), $.op),
+          alias($.argument, $.rhs))
+        ),
+        prec.left(3, seq(
+          alias($.argument, $.lhs),
+          alias(choice("+", "-"), $.op),
+          alias($.argument, $.rhs))
+        ),
+        prec.left(2, seq(
+          alias($.argument, $.lhs),
+          alias(choice("land", "lor", "lxor"), $.op),
+          alias($.argument, $.rhs))
+        ),
+        prec.left(1, seq(
+          alias($.argument, $.lhs),
+          alias(choice("band", "bor", "bxor", "bshl", "bshr", "bshru"), $.op),
+          alias($.argument, $.rhs))
+        )
     ),
     type_conversion: $ => seq("as", "(", $.argument, ",", $.type_name, ")"),
     aggregator: $ => seq(

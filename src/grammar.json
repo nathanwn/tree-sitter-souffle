@@ -1747,21 +1747,26 @@
         "type": "SEQ",
         "members": [
           {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "STRING",
-                "value": "-"
-              },
-              {
-                "type": "STRING",
-                "value": "bnot"
-              },
-              {
-                "type": "STRING",
-                "value": "lnot"
-              }
-            ]
+            "type": "ALIAS",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "-"
+                },
+                {
+                  "type": "STRING",
+                  "value": "bnot"
+                },
+                {
+                  "type": "STRING",
+                  "value": "lnot"
+                }
+              ]
+            },
+            "named": true,
+            "value": "op"
           },
           {
             "type": "SYMBOL",
@@ -1789,8 +1794,13 @@
                 "value": "lhs"
               },
               {
-                "type": "STRING",
-                "value": "^"
+                "type": "ALIAS",
+                "content": {
+                  "type": "STRING",
+                  "value": "^"
+                },
+                "named": true,
+                "value": "op"
               },
               {
                 "type": "ALIAS",
@@ -1820,21 +1830,26 @@
                 "value": "lhs"
               },
               {
-                "type": "CHOICE",
-                "members": [
-                  {
-                    "type": "STRING",
-                    "value": "*"
-                  },
-                  {
-                    "type": "STRING",
-                    "value": "/"
-                  },
-                  {
-                    "type": "STRING",
-                    "value": "%"
-                  }
-                ]
+                "type": "ALIAS",
+                "content": {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": "*"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "/"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "%"
+                    }
+                  ]
+                },
+                "named": true,
+                "value": "op"
               },
               {
                 "type": "ALIAS",
@@ -1864,17 +1879,22 @@
                 "value": "lhs"
               },
               {
-                "type": "CHOICE",
-                "members": [
-                  {
-                    "type": "STRING",
-                    "value": "+"
-                  },
-                  {
-                    "type": "STRING",
-                    "value": "-"
-                  }
-                ]
+                "type": "ALIAS",
+                "content": {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": "+"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "-"
+                    }
+                  ]
+                },
+                "named": true,
+                "value": "op"
               },
               {
                 "type": "ALIAS",
@@ -1904,21 +1924,26 @@
                 "value": "lhs"
               },
               {
-                "type": "CHOICE",
-                "members": [
-                  {
-                    "type": "STRING",
-                    "value": "land"
-                  },
-                  {
-                    "type": "STRING",
-                    "value": "lor"
-                  },
-                  {
-                    "type": "STRING",
-                    "value": "lxor"
-                  }
-                ]
+                "type": "ALIAS",
+                "content": {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": "land"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "lor"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "lxor"
+                    }
+                  ]
+                },
+                "named": true,
+                "value": "op"
               },
               {
                 "type": "ALIAS",
@@ -1948,33 +1973,38 @@
                 "value": "lhs"
               },
               {
-                "type": "CHOICE",
-                "members": [
-                  {
-                    "type": "STRING",
-                    "value": "band"
-                  },
-                  {
-                    "type": "STRING",
-                    "value": "bor"
-                  },
-                  {
-                    "type": "STRING",
-                    "value": "bxor"
-                  },
-                  {
-                    "type": "STRING",
-                    "value": "bshl"
-                  },
-                  {
-                    "type": "STRING",
-                    "value": "bshr"
-                  },
-                  {
-                    "type": "STRING",
-                    "value": "bshru"
-                  }
-                ]
+                "type": "ALIAS",
+                "content": {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": "band"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "bor"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "bxor"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "bshl"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "bshr"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "bshru"
+                    }
+                  ]
+                },
+                "named": true,
+                "value": "op"
               },
               {
                 "type": "ALIAS",

@@ -16,6 +16,7 @@ e(1 - 2).
           (lhs
             (constant
               (decimal)))
+          (op)
           (rhs
             (constant
               (decimal))))))))
@@ -38,6 +39,7 @@ e(1.2 - 2.3).
           (lhs
             (constant
               (float)))
+          (op)
           (rhs
             (constant
               (float))))))))
@@ -62,14 +64,17 @@ e(1 * 2 + 3 * 4).
               (lhs
                 (constant
                   (decimal)))
+              (op)
               (rhs
                 (constant
                   (decimal)))))
+          (op)
           (rhs
             (binary_operation
               (lhs
                 (constant
                   (decimal)))
+              (op)
               (rhs
                 (constant
                   (decimal))))))))))
@@ -91,9 +96,11 @@ e(-1 - 2).
         (binary_operation
           (lhs
             (unary_operation
+              (op)
               (argument
                 (constant
                   (decimal)))))
+          (op)
           (rhs
             (constant
               (decimal))))))))
@@ -117,17 +124,21 @@ e(-a * b + c / d).
             (binary_operation
               (lhs
                 (unary_operation
+                  (op)
                   (argument
                     (variable
                       (identifier)))))
+              (op)
               (rhs
                 (variable
                   (identifier)))))
+          (op)
           (rhs
             (binary_operation
               (lhs
                 (variable
                   (identifier)))
+              (op)
               (rhs
                 (variable
                   (identifier))))))))))
