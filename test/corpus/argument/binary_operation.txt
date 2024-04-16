@@ -1,10 +1,10 @@
-====================================
+================================================================================
 single binary operation
-====================================
+================================================================================
 
 e(1 - 2).
 
----
+--------------------------------------------------------------------------------
 
 (source_file
   (fact
@@ -13,20 +13,20 @@ e(1 - 2).
         (identifier))
       (argument
         (binary_operation
-          (argument
+          (lhs
             (constant
               (decimal)))
-          (argument
+          (rhs
             (constant
               (decimal))))))))
 
-====================================
+================================================================================
 single binary operation with floats
-====================================
+================================================================================
 
 e(1.2 - 2.3).
 
----
+--------------------------------------------------------------------------------
 
 (source_file
   (fact
@@ -35,21 +35,20 @@ e(1.2 - 2.3).
         (identifier))
       (argument
         (binary_operation
-          (argument
+          (lhs
             (constant
               (float)))
-          (argument
+          (rhs
             (constant
               (float))))))))
 
-
-====================================
+================================================================================
 multiple binary operations
-====================================
+================================================================================
 
 e(1 * 2 + 3 * 4).
 
----
+--------------------------------------------------------------------------------
 
 (source_file
   (fact
@@ -58,30 +57,30 @@ e(1 * 2 + 3 * 4).
         (identifier))
       (argument
         (binary_operation
-          (argument
+          (lhs
             (binary_operation
-              (argument
+              (lhs
                 (constant
                   (decimal)))
-              (argument
+              (rhs
                 (constant
                   (decimal)))))
-          (argument
+          (rhs
             (binary_operation
-              (argument
+              (lhs
                 (constant
                   (decimal)))
-              (argument
+              (rhs
                 (constant
                   (decimal))))))))))
 
-====================================
+================================================================================
 unary and binary operations
-====================================
+================================================================================
 
 e(-1 - 2).
 
----
+--------------------------------------------------------------------------------
 
 (source_file
   (fact
@@ -90,22 +89,22 @@ e(-1 - 2).
         (identifier))
       (argument
         (binary_operation
-          (argument
+          (lhs
             (unary_operation
               (argument
                 (constant
                   (decimal)))))
-          (argument
+          (rhs
             (constant
               (decimal))))))))
 
-==========================================
+================================================================================
 unary and binary operations with variables
-==========================================
+================================================================================
 
 e(-a * b + c / d).
 
----
+--------------------------------------------------------------------------------
 
 (source_file
   (fact
@@ -114,21 +113,21 @@ e(-a * b + c / d).
         (identifier))
       (argument
         (binary_operation
-          (argument
+          (lhs
             (binary_operation
-              (argument
+              (lhs
                 (unary_operation
                   (argument
                     (variable
                       (identifier)))))
-              (argument
+              (rhs
                 (variable
                   (identifier)))))
-          (argument
+          (rhs
             (binary_operation
-              (argument
+              (lhs
                 (variable
                   (identifier)))
-              (argument
+              (rhs
                 (variable
                   (identifier))))))))))

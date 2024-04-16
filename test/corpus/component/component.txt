@@ -44,10 +44,10 @@ sample component
             (identifier))
           (argument
             (binary_operation
-              (argument
+              (lhs
                 (variable
                   (identifier)))
-              (argument
+              (rhs
                 (constant
                   (decimal)))))))
       (disjunction
@@ -95,10 +95,10 @@ sample component
             (identifier))
           (argument
             (binary_operation
-              (argument
+              (lhs
                 (variable
                   (identifier)))
-              (argument
+              (rhs
                 (constant
                   (decimal)))))))
       (disjunction

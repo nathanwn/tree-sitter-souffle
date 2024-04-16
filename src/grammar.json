@@ -1780,16 +1780,26 @@
             "type": "SEQ",
             "members": [
               {
-                "type": "SYMBOL",
-                "name": "argument"
+                "type": "ALIAS",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "argument"
+                },
+                "named": true,
+                "value": "lhs"
               },
               {
                 "type": "STRING",
                 "value": "^"
               },
               {
-                "type": "SYMBOL",
-                "name": "argument"
+                "type": "ALIAS",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "argument"
+                },
+                "named": true,
+                "value": "rhs"
               }
             ]
           }
@@ -1801,8 +1811,13 @@
             "type": "SEQ",
             "members": [
               {
-                "type": "SYMBOL",
-                "name": "argument"
+                "type": "ALIAS",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "argument"
+                },
+                "named": true,
+                "value": "lhs"
               },
               {
                 "type": "CHOICE",
@@ -1822,8 +1837,13 @@
                 ]
               },
               {
-                "type": "SYMBOL",
-                "name": "argument"
+                "type": "ALIAS",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "argument"
+                },
+                "named": true,
+                "value": "rhs"
               }
             ]
           }
@@ -1835,8 +1855,13 @@
             "type": "SEQ",
             "members": [
               {
-                "type": "SYMBOL",
-                "name": "argument"
+                "type": "ALIAS",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "argument"
+                },
+                "named": true,
+                "value": "lhs"
               },
               {
                 "type": "CHOICE",
@@ -1852,8 +1877,13 @@
                 ]
               },
               {
-                "type": "SYMBOL",
-                "name": "argument"
+                "type": "ALIAS",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "argument"
+                },
+                "named": true,
+                "value": "rhs"
               }
             ]
           }
@@ -1865,8 +1895,13 @@
             "type": "SEQ",
             "members": [
               {
-                "type": "SYMBOL",
-                "name": "argument"
+                "type": "ALIAS",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "argument"
+                },
+                "named": true,
+                "value": "lhs"
               },
               {
                 "type": "CHOICE",
@@ -1886,8 +1921,13 @@
                 ]
               },
               {
-                "type": "SYMBOL",
-                "name": "argument"
+                "type": "ALIAS",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "argument"
+                },
+                "named": true,
+                "value": "rhs"
               }
             ]
           }
@@ -1899,8 +1939,13 @@
             "type": "SEQ",
             "members": [
               {
-                "type": "SYMBOL",
-                "name": "argument"
+                "type": "ALIAS",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "argument"
+                },
+                "named": true,
+                "value": "lhs"
               },
               {
                 "type": "CHOICE",
@@ -1932,8 +1977,13 @@
                 ]
               },
               {
-                "type": "SYMBOL",
-                "name": "argument"
+                "type": "ALIAS",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "argument"
+                },
+                "named": true,
+                "value": "rhs"
               }
             ]
           }

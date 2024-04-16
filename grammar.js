@@ -308,11 +308,11 @@ module.exports = grammar({
         $.argument
     )),
     binary_operation: $ => choice(
-        prec.left(5, seq($.argument, "^", $.argument)),
-        prec.left(4, seq($.argument, choice("*", "/", "%"), $.argument)),
-        prec.left(3, seq($.argument, choice("+", "-"), $.argument)),
-        prec.left(2, seq($.argument, choice("land", "lor", "lxor"), $.argument)),
-        prec.left(1, seq($.argument, choice("band", "bor", "bxor", "bshl", "bshr", "bshru"), $.argument))
+        prec.left(5, seq(alias($.argument, $.lhs), "^", alias($.argument, $.rhs))),
+        prec.left(4, seq(alias($.argument, $.lhs), choice("*", "/", "%"), alias($.argument, $.rhs))),
+        prec.left(3, seq(alias($.argument, $.lhs), choice("+", "-"), alias($.argument, $.rhs))),
+        prec.left(2, seq(alias($.argument, $.lhs), choice("land", "lor", "lxor"), alias($.argument, $.rhs))),
+        prec.left(1, seq(alias($.argument, $.lhs), choice("band", "bor", "bxor", "bshl", "bshr", "bshru"), alias($.argument, $.rhs)))
     ),
     type_conversion: $ => seq("as", "(", $.argument, ",", $.type_name, ")"),
     aggregator: $ => seq(
