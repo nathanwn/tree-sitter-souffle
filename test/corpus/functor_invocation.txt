@@ -187,16 +187,18 @@ P(x) :- x = max (y) : Q(y).
                   (identifier)))
               (argument
                 (aggregator
-                  (aggregate_op)
-                  (argument
-                    (variable
-                      (identifier)))
-                  (atom
-                    (qualified_name
-                      (identifier))
+                  (aggregator_head
+                    (aggregate_op)
                     (argument
                       (variable
-                        (identifier))))))))))))
+                        (identifier))))
+                  (aggregator_body
+                    (atom
+                      (qualified_name
+                        (identifier))
+                      (argument
+                        (variable
+                          (identifier)))))))))))))
   (rule
     (rule_head
       (atom
@@ -215,15 +217,17 @@ P(x) :- x = max (y) : Q(y).
                   (identifier)))
               (argument
                 (aggregator
-                  (aggregate_op)
-                  (argument
-                    (paren_argument
+                  (aggregator_head
+                    (aggregate_op)
+                    (argument
+                      (paren_argument
+                        (argument
+                          (variable
+                            (identifier))))))
+                  (aggregator_body
+                    (atom
+                      (qualified_name
+                        (identifier))
                       (argument
                         (variable
-                          (identifier)))))
-                  (atom
-                    (qualified_name
-                      (identifier))
-                    (argument
-                      (variable
-                        (identifier)))))))))))))
+                          (identifier))))))))))))))

@@ -25,12 +25,14 @@ count_fizz(c) :- c = count : div_by_3(x).
                   (identifier)))
               (argument
                 (aggregator
-                  (atom
-                    (qualified_name
-                      (identifier))
-                    (argument
-                      (variable
-                        (identifier)))))))))))))
+                  (aggregator_head)
+                  (aggregator_body
+                    (atom
+                      (qualified_name
+                        (identifier))
+                      (argument
+                        (variable
+                          (identifier))))))))))))))
 
 ================================================================================
 aggregator with body
@@ -59,22 +61,24 @@ count_fizz_buzz(c) :- c = count : { div_by_3(x), div_by_5(x) }.
                   (identifier)))
               (argument
                 (aggregator
-                  (disjunction
-                    (conjunction
-                      (conjunction_clause
-                        (atom
-                          (qualified_name
-                            (identifier))
-                          (argument
-                            (variable
-                              (identifier)))))
-                      (conjunction_clause
-                        (atom
-                          (qualified_name
-                            (identifier))
-                          (argument
-                            (variable
-                              (identifier))))))))))))))))
+                  (aggregator_head)
+                  (aggregator_body
+                    (disjunction
+                      (conjunction
+                        (conjunction_clause
+                          (atom
+                            (qualified_name
+                              (identifier))
+                            (argument
+                              (variable
+                                (identifier)))))
+                        (conjunction_clause
+                          (atom
+                            (qualified_name
+                              (identifier))
+                            (argument
+                              (variable
+                                (identifier)))))))))))))))))
 
 ================================================================================
 sum aggregator
@@ -103,23 +107,25 @@ sum_fizzbuzz(s) :- s = sum x : { div_by_3(x), div_by_5(x) }.
                   (identifier)))
               (argument
                 (aggregator
-                  (aggregate_op)
-                  (argument
-                    (variable
-                      (identifier)))
-                  (disjunction
-                    (conjunction
-                      (conjunction_clause
-                        (atom
-                          (qualified_name
-                            (identifier))
-                          (argument
-                            (variable
-                              (identifier)))))
-                      (conjunction_clause
-                        (atom
-                          (qualified_name
-                            (identifier))
-                          (argument
-                            (variable
-                              (identifier))))))))))))))))
+                  (aggregator_head
+                    (aggregate_op)
+                    (argument
+                      (variable
+                        (identifier))))
+                  (aggregator_body
+                    (disjunction
+                      (conjunction
+                        (conjunction_clause
+                          (atom
+                            (qualified_name
+                              (identifier))
+                            (argument
+                              (variable
+                                (identifier)))))
+                        (conjunction_clause
+                          (atom
+                            (qualified_name
+                              (identifier))
+                            (argument
+                              (variable
+                                (identifier)))))))))))))))))

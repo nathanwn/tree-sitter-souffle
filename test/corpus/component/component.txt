@@ -70,7 +70,8 @@ sample component
                   (constant
                     (decimal)))))))))
     (directive
-      (output_kw)
+      (directive_qualifier
+        (output_kw))
       (qualified_name
         (identifier))))
   (component_decl
