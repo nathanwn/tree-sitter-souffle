@@ -4,6 +4,12 @@ on:
   push:
 
 jobs:
+  lint:
+    uses: nathanwn/workflows/.github/workflows/tox.yml@54c16bafa9c75cad9db4d716354fefa87b3cb09b  # v0.6.0
+    with:
+      os: '["ubuntu-latest"]'
+      env: '["pre-commit"]'
+
   test:
     runs-on: ubuntu-latest
     strategy:

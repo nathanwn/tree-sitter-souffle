@@ -19,7 +19,7 @@ TEST_DATA = [
     TestRepo(
         name="souffle",
         url="https://github.com/souffle-lang/souffle",
-        version="2.4.1",
+        version="2.5",
         skipped_cases=[
             # Undocumented features
             # - https://github.com/souffle-lang/souffle-lang.github.io/issues/136
@@ -71,7 +71,7 @@ TEST_DATA = [
 ]
 
 
-def clone_repo(test_repo: TestRepo):
+def clone_repo(test_repo: TestRepo) -> None:
     subprocess.run(
         args=[
             *("git", "clone", "--filter=blob:none"),
@@ -85,8 +85,7 @@ def clone_repo(test_repo: TestRepo):
     )
 
 
-
-def main():
+def main() -> int:
     subprocess.run(args=["pwd"])
     subprocess.run(args=["which", "tree-sitter"])
     if not os.path.isdir(TEST_REPOS_DIR):
@@ -103,15 +102,19 @@ def main():
         cnt_passed = 0
         cnt_skipped = 0
 
-        ignored_tests = set(map(
-            lambda case: os.path.join(TEST_REPOS_DIR, test_repo.name, case),
-            test_repo.ignored_cases,
-        ))
+        ignored_tests = set(
+            map(
+                lambda case: os.path.join(TEST_REPOS_DIR, test_repo.name, case),
+                test_repo.ignored_cases,
+            )
+        )
 
-        skipped_tests = set(map(
-            lambda case: os.path.join(TEST_REPOS_DIR, test_repo.name, case),
-            test_repo.skipped_cases,
-        ))
+        skipped_tests = set(
+            map(
+                lambda case: os.path.join(TEST_REPOS_DIR, test_repo.name, case),
+                test_repo.skipped_cases,
+            )
+        )
 
         for filepath in glob("**/*.dl", recursive=True):
             print(filepath, end=": ", flush=True)
@@ -143,11 +146,20 @@ def main():
                 cnt_passed += 1
 
         total = cnt_passed + cnt_failed + cnt_skipped
-        print("; ".join([
-            f"passed({cnt_passed}/{total})",
-            f"failed({cnt_failed}/{total})",
-            f"skipped({cnt_skipped}/{total})",
-        ]))
+        print(
+            " ".join(
+                [
+                    "Result: "
+                    "; ".join(
+                        [
+                            f"passed({cnt_passed}/{total})",
+                            f"failed({cnt_failed}/{total})",
+                            f"skipped({cnt_skipped}/{total})",
+                        ]
+                    )
+                ]
+            )
+        )
 
         total_cnt_failed += cnt_failed
 
