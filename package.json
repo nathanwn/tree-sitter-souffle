@@ -1,44 +1,53 @@
 {
   "name": "tree-sitter-souffle",
-  "version": "0.0.1",
-  "description": "Tree-sitter parser for Souffle Datalog",
-  "main": "grammar.js",
-  "types": "bindings/node",
-  "directories": {
-    "test": "test"
-  },
-  "scripts": {
-    "generate": "tree-sitter generate",
-    "test": "tree-sitter test",
-    "benchmark-test": "./benchmark_test.py",
-    "install": "node-gyp-build",
-    "prebuildify": "prebuildify --napi --strip"
-  },
-  "author": "",
+  "version": "0.1.0",
+  "description": "Souffle grammar for tree-sitter",
+  "repository": "https://github.com/nathanwn/tree-sitter-souffle",
   "license": "MIT",
-  "gypfile": true,
-  "devDependencies": {
-    "tree-sitter-cli": "^0.22.1",
-    "prebuildify": "^6.0.0"
+  "author": {
+    "name": "nathanwn",
+    "url": "https://github.com/nathanwn"
   },
-  "dependencies": {
-    "node-gyp-build": "^4.8.0"
-  },
-  "peerDependencies": {
-    "tree-sitter": "^0.21.0"
-  },
-  "peerDependenciesMeta": {
-    "tree_sitter": {
-      "optional": true
-    }
-  },
+  "main": "bindings/node",
+  "types": "bindings/node",
+  "keywords": [
+    "incremental",
+    "parsing",
+    "tree-sitter",
+    "souffle"
+  ],
   "files": [
     "grammar.js",
+    "tree-sitter.json",
     "binding.gyp",
     "prebuilds/**",
     "bindings/node/*",
     "queries/*",
-    "src/**"
+    "src/**",
+    "*.wasm"
   ],
-  "tree-sitter": []
+  "dependencies": {
+    "node-addon-api": "^8.2.1",
+    "node-gyp-build": "^4.8.2"
+  },
+  "devDependencies": {
+    "prebuildify": "^6.0.1",
+    "tree-sitter-cli": "^0.25.6"
+  },
+  "peerDependencies": {
+    "tree-sitter": "^0.25.0"
+  },
+  "peerDependenciesMeta": {
+    "tree-sitter": {
+      "optional": true
+    }
+  },
+  "scripts": {
+    "install": "node-gyp-build",
+    "prestart": "tree-sitter build --wasm",
+    "start": "tree-sitter playground",
+    "test": "./node_modules/tree-sitter-cli/tree-sitter test",
+    "test_node_bindings": "node --test bindings/node/*_test.js",
+    "test_regression": "./regression.py"
+  }
 }

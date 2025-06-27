@@ -1645,6 +1645,7 @@
   {
     "type": "source_file",
     "named": true,
+    "root": true,
     "fields": {},
     "children": {
       "multiple": true,
@@ -2086,7 +2087,8 @@
   },
   {
     "type": "block_comment",
-    "named": true
+    "named": true,
+    "extra": true
   },
   {
     "type": "brie",
@@ -2135,10 +2137,6 @@
   {
     "type": "decl_kw",
     "named": true
-  },
-  {
-    "type": "define",
-    "named": false
   },
   {
     "type": "defined",
@@ -2202,7 +2200,8 @@
   },
   {
     "type": "line_comment",
-    "named": true
+    "named": true,
+    "extra": true
   },
   {
     "type": "log",
@@ -2366,11 +2365,11 @@
   },
   {
     "type": "unsigned",
-    "named": true
+    "named": false
   },
   {
     "type": "unsigned",
-    "named": false
+    "named": true
   },
   {
     "type": "{",

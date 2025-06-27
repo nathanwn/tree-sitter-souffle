@@ -22,7 +22,7 @@ enum TokenType {
     // MIN_AGGREGATOR_KW,
 };
 
-bool is_whitespace(int32_t c) {
+static bool is_whitespace(int32_t c) {
     return c == ' ' || c == '\t' || c == '\n' || c == '\r';
 }
 
@@ -53,13 +53,13 @@ void tree_sitter_souffle_external_scanner_deserialize(void *payload,
                                                       unsigned length) {
 }
 
-void skip_whitespaces(TSLexer *lexer) {
+static void skip_whitespaces(TSLexer *lexer) {
     for (int32_t c = lexer->lookahead; !lexer->eof(lexer) && is_whitespace(c);
          c = skip(lexer)) {
     }
 }
 
-char *next_token(TSLexer *lexer) {
+static char *next_token(TSLexer *lexer) {
     skip_whitespaces(lexer);
     if (lexer->eof(lexer)) return NULL;
 

@@ -149,14 +149,14 @@ def main() -> int:
         print(
             " ".join(
                 [
-                    "Result: "
+                    "Result: ",
                     "; ".join(
                         [
                             f"passed({cnt_passed}/{total})",
                             f"failed({cnt_failed}/{total})",
                             f"skipped({cnt_skipped}/{total})",
                         ]
-                    )
+                    ),
                 ]
             )
         )
